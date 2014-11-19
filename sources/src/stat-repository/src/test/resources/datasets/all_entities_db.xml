@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dataset PUBLIC "stat_dataset" "stat_dataset.dtd">
+
+<dataset>
+    <resolution id="1" height="200" width="100" />
+    <statistic id="1" name="name0" value="value0" resolution_id="1" />
+</dataset>

@@ -1,0 +1,9 @@
+# Eclipse
+.checkstyle
+.project
+.classpath
+.settings/
+test-output/
+
+# Maven
+target/

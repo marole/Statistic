@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Witaj</title>
+</h:head>
+<h:body>
+    <h:form>
+        <h3>Proszę wpisać nazwę i hasło użytkownika</h3>
+        <table>
+            <tr>
+                <td>Nazwa:</td>
+                <td><h:inputText value="#{user.name}" /></td>
+            </tr>
+            <tr>
+                <td>Hasło:</td>
+                <td><h:inputSecret value="#{user.password}" /></td>
+            </tr>
+        </table>
+        <p>
+            <h:commandButton value="Zaloguj" action="welcome" />
+        </p>
+    </h:form>
+</h:body>
+</html>

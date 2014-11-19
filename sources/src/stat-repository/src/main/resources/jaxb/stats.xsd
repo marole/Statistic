@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:art="http://www.artsoft.com/stats" targetNamespace="http://www.artsoft.com/stats" elementFormDefault="qualified" version="0.1">
+    <complexType name="statistic">
+        <annotation>
+            <documentation>Statistic data of ArtSoft application.</documentation>
+        </annotation>
+        <all>
+            <element name="name" type="art:nonEmptyString"></element>
+            <element name="value" type="art:nonEmptyString"></element>
+            <element name="resolution" type="art:resolution"></element>
+        </all>
+    </complexType>
+    <simpleType name="nonEmptyString">
+        <restriction base="string">
+            <minLength value="1"></minLength>
+        </restriction>
+    </simpleType>
+    <complexType name="resolution">
+        <annotation>
+            <documentation>Graphics display resolution of used screen.</documentation>
+        </annotation>
+        <all>
+            <element name="width" type="positiveInteger"></element>
+            <element name="height" type="positiveInteger"></element>
+        </all>
+    </complexType>
+    <element name="statistic" type="art:statistic"></element>
+</schema>

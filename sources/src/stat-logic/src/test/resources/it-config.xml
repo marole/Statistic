@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <comment>Integration test configurations</comment>
+    <entry key="db_jndi">${artsoft.stat.it.db.connection-url}</entry>
+</properties>

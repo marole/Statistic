@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bindings version="2.0" xmlns="http://java.sun.com/xml/ns/jaxb" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/jaxb http://java.sun.com/xml/ns/jaxb/bindingschema_2_0.xsd ">
+    <bindings schemaLocation="../schemas/stats.xsd" node="/xs:schema">
+        <schemaBindings>
+            <package name="com.artsoft.stat.web.services.rest.domain"></package>
+        </schemaBindings>
+                <bindings node="//xs:complexType[@name='resolutionType']">
+            <class name="resolution">
+                <javadoc>The Resolution class represents the display resolution.</javadoc>
+            </class>
+        </bindings>
+        <bindings node="//xs:element[@name='statistic']">
+            <class name="statistic">
+                <javadoc>The Statistic data of ArtSoft application.</javadoc>
+            </class>
+        </bindings>
+    </bindings>
+</bindings>

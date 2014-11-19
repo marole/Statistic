@@ -1,0 +1,30 @@
+<!ELEMENT dataset (
+    resolution*,
+    resolution_id_seq*,
+    statistic*,
+    statistic_id_seq*)>
+
+<!ELEMENT resolution EMPTY>
+<!ATTLIST resolution
+    id CDATA #REQUIRED
+    height CDATA #REQUIRED
+    width CDATA #REQUIRED
+>
+
+<!ELEMENT resolution_id_seq EMPTY>
+<!ATTLIST resolution_id_seq
+    next_val CDATA #IMPLIED
+>
+
+<!ELEMENT statistic EMPTY>
+<!ATTLIST statistic
+    id CDATA #REQUIRED
+    name CDATA #REQUIRED
+    value CDATA #REQUIRED
+    resolution_id CDATA #REQUIRED
+>
+
+<!ELEMENT statistic_id_seq EMPTY>
+<!ATTLIST statistic_id_seq
+    next_val CDATA #IMPLIED
+>

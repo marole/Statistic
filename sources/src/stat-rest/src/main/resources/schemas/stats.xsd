@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:art="http://www.artsoft.com/stats" targetNamespace="http://www.artsoft.com/stats" elementFormDefault="qualified" version="0.1">
+    <simpleType name="nonEmptyString">
+        <restriction base="string">
+            <minLength value="1"></minLength>
+        </restriction>
+    </simpleType>
+    <simpleType name="positiveInt">
+        <restriction base="int">
+            <minExclusive value="0"></minExclusive>
+        </restriction>
+    </simpleType>
+    <complexType name="resolutionType">
+        <annotation>
+            <documentation>Graphics display resolution of used screen.</documentation>
+        </annotation>
+        <all>
+            <element name="width" type="art:positiveInt"></element>
+            <element name="height" type="art:positiveInt"></element>
+        </all>
+    </complexType>
+	
+    <element name="statistic">
+        <complexType>
+            <annotation>
+                <documentation>Statistic data of ArtSoft application.</documentation>
+            </annotation>
+            <all>
+                <element name="name" type="art:nonEmptyString"></element>
+                <element name="value" type="art:nonEmptyString"></element>
+                <element name="resolution" type="art:resolutionType"></element>
+            </all>
+        </complexType>
+    </element>
+</schema>
