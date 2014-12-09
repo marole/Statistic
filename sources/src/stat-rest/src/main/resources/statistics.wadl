@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<application xmlns="http://wadl.dev.java.net/2009/02"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://wadl.dev.java.net/2009/02 wadl.xsd"
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+   xmlns:art="http://www.artsoft.com/stats">
+     <doc xml:lang="en" title="Statics"/>
+     
+     <grammars>
+          <include href="schemas/stats.xsd"/>
+     </grammars>
+     
+     <resources base="http://localhost:8080/stat-rest/">
+          <resource path="stats" id="StatResourceRest">
+               <doc xml:lang="en" title="stats_https"/>
+               <method name="POST" id="createNewStatistics">
+                    <request>
+                         <representation mediaType="application/xml" element="art:statistic"/>
+                    </request>
+               </method>
+          </resource>
+     </resources>
+</application>

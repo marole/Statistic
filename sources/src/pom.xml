@@ -15,13 +15,13 @@
         <project.config.file.path>${project.parent.relativePath}/../project.properties</project.config.file.path>
 
         <!-- Build configurations -->
-        <restfull-schemaDomain-directory>src/main/resources/schemas</restfull-schemaDomain-directory>
-        <restfull-schemaDomain-file>stats.xsd</restfull-schemaDomain-file>
-        <restfull-schemaDomain-filePath>${restfull-schemaDomain-directory}/${restfull-schemaDomain-file}</restfull-schemaDomain-filePath>
+        <restfull-resources-directory>src/main/resources</restfull-resources-directory>
+        <restfull-output-resources-directory>${project.build.directory}/generated</restfull-output-resources-directory>
+        <cxf-java-output-directory>${restfull-output-resources-directory}/src/main/java</cxf-java-output-directory>
 
-        <jaxb2-input-binding-filePath>src/main/resources/jaxb/stats.xjb</jaxb2-input-binding-filePath>
-        <jaxb2-java-output-directory>${project.build.directory}/generated/src/main/java</jaxb2-java-output-directory>
-        <jaxb2-resource-output-directory>${project.build.directory}/generated/src/main/resources</jaxb2-resource-output-directory>
+        <restfull-wadl-filePath>${restfull-resources-directory}/statistics.wadl</restfull-wadl-filePath>
+        <jaxb2-input-binding-filePath>${restfull-resources-directory}/jaxb/stats.xjb</jaxb2-input-binding-filePath>
+        <jaxb2-resource-output-directory>${restfull-output-resources-directory}/src/main/resources</jaxb2-resource-output-directory>
 
         <!-- Project dependencies -->
         <stat-repository.version>${project.version}</stat-repository.version>
@@ -79,6 +79,7 @@
         <jaxb2-maven-plugin.version>1.5</jaxb2-maven-plugin.version>
         <jaxb2-basics.version>0.6.5</jaxb2-basics.version>
         <cxf-xjc-plugin.version>2.7.0</cxf-xjc-plugin.version>
+        <cxf-wadl2java-plugin.version>3.0.2</cxf-wadl2java-plugin.version>
         <jacoco-maven-plugin.version>0.7.2.201409121644</jacoco-maven-plugin.version>
     </properties>
 
@@ -160,6 +161,12 @@
                 <artifactId>commons-configuration</artifactId>
                 <version>${commons-configuration.version}</version>
             </dependency>
+            <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-wadl2java-plugin</artifactId>
+            <version>3.0.2</version>
+            </dependency>
+            
 
             <!-- Dependencies used for testing -->
             <dependency>
@@ -409,37 +416,45 @@
 
                 <plugin>
                     <groupId>org.apache.cxf</groupId>
-                    <artifactId>cxf-xjc-plugin</artifactId>
-                    <version>${cxf-xjc-plugin.version}</version>
-                    <configuration>
-                        <extensions>
-                            <extension>org.apache.cxf.xjcplugins:cxf-xjc-ts:${cxf-xjc-plugin.version}</extension>
-                        </extensions>
-                    </configuration>
+                    <artifactId>cxf-wadl2java-plugin</artifactId>
+                    <version>${cxf-wadl2java-plugin.version}</version>
                     <executions>
                         <execution>
-                            <id>generate-sources</id>
+                            <id>wadl2java</id>
                             <phase>generate-sources</phase>
                             <goals>
-                                <goal>xsdtojava</goal>
+                                <goal>wadl2java</goal>
                             </goals>
                             <configuration>
-                                <sourceRoot>${jaxb2-java-output-directory}</sourceRoot>
-                                <xsdOptions>
-                                    <xsdOption>
-                                        <xsd>${restfull-schemaDomain-filePath}</xsd>
-                                        <bindingFile>${jaxb2-input-binding-filePath}</bindingFile>
-                                        <extension>true</extension>
-                                        <extensionArgs>
-                                            <arg>-Xts:style:org.apache.commons.lang.builder.ToStringStyle.SHORT_PREFIX_STYLE</arg>
-                                            <extensionArg>-npa</extensionArg>
-                                            <extensionArg>-no-header</extensionArg>
-                                        </extensionArgs>
-                                    </xsdOption>
-                                </xsdOptions>
+                                <sourceRoot>${cxf-java-output-directory}</sourceRoot>
+                                <wadlOptions>
+                                    <wadlOption>
+                                        <wadl>${restfull-wadl-filePath}</wadl>
+                                        <packagename>com.artsoft.stat.web.services.rest.api</packagename>
+                                        <bindingFiles>
+                                            <bindingFile>${jaxb2-input-binding-filePath}</bindingFile>
+                                        </bindingFiles>
+
+                                        <extraargs>
+                                            <extraarg>-sp</extraarg>
+                                            <extraarg>http://www.artsoft.com/stats=com.artsoft.stat.web.services.rest.domain</extraarg>
+                                            <extraarg>-noVoidForEmptyResponses</extraarg>
+                                            <extraarg>-xjc-npa</extraarg>
+                                            <extraarg>-xjc-no-header</extraarg>
+                                            <extraarg>-xjc-Xts:style:org.apache.commons.lang.builder.ToStringStyle.SHORT_PREFIX_STYLE</extraarg>
+                                        </extraargs>
+                                    </wadlOption>
+                                </wadlOptions>
                             </configuration>
                         </execution>
                     </executions>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.apache.cxf.xjcplugins</groupId>
+                            <artifactId>cxf-xjc-ts</artifactId>
+                            <version>${cxf-xjc-plugin.version}</version>
+                        </dependency>
+                    </dependencies>
                 </plugin>
             </plugins>
         </pluginManagement>

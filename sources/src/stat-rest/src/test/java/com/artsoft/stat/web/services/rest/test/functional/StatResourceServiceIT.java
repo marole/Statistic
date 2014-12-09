@@ -62,7 +62,7 @@ public class StatResourceServiceIT extends Arquillian
 
     /**
      * Create ear archive for functional test needs.
-     * 
+     *
      * @return the ear archive
      */
     @Deployment(testable = false)
@@ -126,7 +126,7 @@ public class StatResourceServiceIT extends Arquillian
 
     /**
      * Functional test by use SoapUi tool.
-     * 
+     *
      * @throws Exception the exception
      */
     @Test

@@ -1,3 +1,6 @@
 # SoapUI
 global-groovy.log
 soapui*.log
+
+# ObjectAid
+/*.ucls

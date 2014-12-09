@@ -11,7 +11,7 @@ package com.artsoft.stat.web.services.rest.common;
 public abstract class Constants
 {
     /** Location of file contains xml schema of REST request data. */
-    public static final String XML_SCHEMA_PATH = "stats.xsd";
+    public static final String XML_SCHEMA_PATH = "schemas/stats.xsd";
 
 
     private Constants()
