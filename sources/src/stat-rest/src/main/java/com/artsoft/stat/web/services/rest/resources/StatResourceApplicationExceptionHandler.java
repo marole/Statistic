@@ -30,7 +30,7 @@ public class StatResourceApplicationExceptionHandler implements ExceptionMapper<
     {
         // handling application exception by send HTTP code 400
 
-        logger.info("Statistic application exception occured during handling request.");
+        logger.info("Statistic application exception occured during handling request.", e);
         return Response.status(Response.Status.BAD_REQUEST).entity(Helper.exceptionCauseChain(e)).build();
     }
 }

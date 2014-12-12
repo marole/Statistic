@@ -43,7 +43,7 @@ public class StatisticServiceBeanTest
 
     /**
      * Test receiving a new correct statistic object.
-     * 
+     *
      * @param name the name
      * @param value the value
      * @param width the width
@@ -68,7 +68,7 @@ public class StatisticServiceBeanTest
 
     /**
      * Test receiving a new incorrect statistic object.
-     * 
+     *
      * @param name the name
      * @param value the value
      * @param width the width
@@ -97,7 +97,7 @@ public class StatisticServiceBeanTest
     public void testNullStatisticReceived()
     {
         // given
-        
+
         // when
         statisticServiceBean.newStatistic(null);
 

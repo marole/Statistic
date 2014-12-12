@@ -16,7 +16,7 @@ public interface StatisticService
 
     /**
      * New statistic provided.
-     * 
+     *
      * @param statistic the statistic item
      * @throws InputDataViolationException the input data violation exception
      * @throws IllegalArgumentException if statistic object is null

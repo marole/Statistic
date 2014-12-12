@@ -29,7 +29,7 @@ public class InputDataViolationException extends StatisticServiceApplicationExce
 
     /**
      * Instantiates a new input data violation exception.
-     * 
+     *
      * @param message the message
      */
     public InputDataViolationException(final String message)
@@ -40,7 +40,7 @@ public class InputDataViolationException extends StatisticServiceApplicationExce
 
     /**
      * Instantiates a new input data violation exception.
-     * 
+     *
      * @param message the message
      * @param cause the cause
      */
@@ -52,7 +52,7 @@ public class InputDataViolationException extends StatisticServiceApplicationExce
 
     /**
      * Instantiates a new input data violation exception.
-     * 
+     *
      * @param message the message
      * @param cause the cause
      * @param enableSuppression the enable suppression
@@ -68,7 +68,7 @@ public class InputDataViolationException extends StatisticServiceApplicationExce
 
     /**
      * Instantiates a new input data violation exception.
-     * 
+     *
      * @param cause the cause
      */
     public InputDataViolationException(final Throwable cause)

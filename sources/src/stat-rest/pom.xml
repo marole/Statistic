@@ -37,7 +37,11 @@
             <groupId>commons-lang</groupId>
             <artifactId>commons-lang</artifactId>
         </dependency>
-            
+        <dependency>
+            <groupId>commons-configuration</groupId>
+            <artifactId>commons-configuration</artifactId>
+        </dependency>
+        
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
@@ -51,11 +55,6 @@
         <dependency>
             <groupId>com.artsoft</groupId>
             <artifactId>utils</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>commons-configuration</groupId>
-            <artifactId>commons-configuration</artifactId>
             <scope>test</scope>
         </dependency>
 
@@ -111,11 +110,21 @@
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>false</filtering>
                 <excludes>
+                    <exclude>**/*.xml</exclude>
                     <exclude>jaxb/*.xjb</exclude>
                 </excludes>
             </resource>
         </resources>
+        
         <plugins>
             <plugin>
                 <groupId>org.apache.cxf</groupId>

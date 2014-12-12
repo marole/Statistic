@@ -22,7 +22,7 @@ import com.artsoft.stat.business.domain.dao.TransactionRequiredDaoException;
 
 /**
  * The JPA implementation of persistence T type for needs of DAO.
- * 
+ *
  * @param <T> the generic type
  * @param <K> the primary key type
  */

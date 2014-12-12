@@ -24,7 +24,7 @@ public class StatisticServiceUnpredictableException extends StatisticServiceExce
 
     /**
      * Instantiates a new statistic service internal exception.
-     * 
+     *
      * @param message the message
      */
     public StatisticServiceUnpredictableException(final String message)
@@ -35,7 +35,7 @@ public class StatisticServiceUnpredictableException extends StatisticServiceExce
 
     /**
      * Instantiates a new statistic service internal exception.
-     * 
+     *
      * @param message the message
      * @param cause the cause
      */
@@ -47,7 +47,7 @@ public class StatisticServiceUnpredictableException extends StatisticServiceExce
 
     /**
      * Instantiates a new statistic service internal exception.
-     * 
+     *
      * @param message the message
      * @param cause the cause
      * @param enableSuppression the enable suppression
@@ -63,7 +63,7 @@ public class StatisticServiceUnpredictableException extends StatisticServiceExce
 
     /**
      * Instantiates a new statistic service internal exception.
-     * 
+     *
      * @param cause the cause
      */
     public StatisticServiceUnpredictableException(final Throwable cause)

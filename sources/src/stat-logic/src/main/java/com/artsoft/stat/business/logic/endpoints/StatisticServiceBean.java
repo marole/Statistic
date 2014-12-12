@@ -30,7 +30,7 @@ import com.artsoft.stat.business.logic.api.StatisticServiceRemote;
 
 /**
  * Session Bean implementation class StatisticServiceImpl.
- * 
+ *
  * @author Marcin Olejarczyk
  */
 @Stateless
@@ -115,7 +115,7 @@ public class StatisticServiceBean implements StatisticServiceRemote
             }
             buffer.append(IOUtils.LINE_SEPARATOR);
             buffer.append("]");
-            
+
             String message = "Failed validating the Statistic object integrity." + " " + IOUtils.LINE_SEPARATOR
                 + buffer;
             logger.info(message);

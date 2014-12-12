@@ -44,7 +44,7 @@ public class StatisticServiceBeanIT extends Arquillian
         "org.dbunit:dbunit",
         "commons-configuration:commons-configuration",
         "com.google.inject:guice",
-    "com.artsoft:utils" };
+        "com.artsoft:utils" };
     private static final String TEST_CLASSES_PATH = "./target/test-classes";
     private static final String ARQUILLIAN_COMPONENT_WITH_TESTS_NAME = "test.jar";
     private static final String WAR_TEST_COMPONENT_NAME_FOR_ITEST = "stat_logic_itest.war";

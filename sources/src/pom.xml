@@ -12,17 +12,19 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <project.config.file.path>${project.parent.relativePath}/../project.properties</project.config.file.path>
+        <project.config.file.path>${project.parent.relativePath}/../local.properties</project.config.file.path>
 
         <!-- Build configurations -->
         <restfull-resources-directory>src/main/resources</restfull-resources-directory>
         <restfull-output-resources-directory>${project.build.directory}/generated</restfull-output-resources-directory>
-        <cxf-java-output-directory>${restfull-output-resources-directory}/src/main/java</cxf-java-output-directory>
-
-        <restfull-wadl-filePath>${restfull-resources-directory}/statistics.wadl</restfull-wadl-filePath>
+        
+        <wadl2java-output-directory>${restfull-output-resources-directory}/src/main/java</wadl2java-output-directory>
+        <restfull-wadl-localPath>statistics.wadl</restfull-wadl-localPath>
+        <restfull-wadl-filePath>${restfull-resources-directory}/${restfull-wadl-localPath}</restfull-wadl-filePath>
         <jaxb2-input-binding-filePath>${restfull-resources-directory}/jaxb/stats.xjb</jaxb2-input-binding-filePath>
         <jaxb2-resource-output-directory>${restfull-output-resources-directory}/src/main/resources</jaxb2-resource-output-directory>
-
+        <xml-schema-localPath>schemas/stats.xsd</xml-schema-localPath>
+        
         <!-- Project dependencies -->
         <stat-repository.version>${project.version}</stat-repository.version>
         <stat-logic.version>${project.version}</stat-logic.version>
@@ -426,7 +428,7 @@
                                 <goal>wadl2java</goal>
                             </goals>
                             <configuration>
-                                <sourceRoot>${cxf-java-output-directory}</sourceRoot>
+                                <sourceRoot>${wadl2java-output-directory}</sourceRoot>
                                 <wadlOptions>
                                     <wadlOption>
                                         <wadl>${restfull-wadl-filePath}</wadl>
@@ -434,7 +436,6 @@
                                         <bindingFiles>
                                             <bindingFile>${jaxb2-input-binding-filePath}</bindingFile>
                                         </bindingFiles>
-
                                         <extraargs>
                                             <extraarg>-sp</extraarg>
                                             <extraarg>http://www.artsoft.com/stats=com.artsoft.stat.web.services.rest.domain</extraarg>

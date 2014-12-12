@@ -62,7 +62,7 @@ public class StatRepositoryJpaDaoIT extends Arquillian
         "org.dbunit:dbunit",
         "commons-configuration:commons-configuration",
         "com.google.inject:guice",
-        "com.artsoft:utils"};
+        "com.artsoft:utils" };
     private static final String ARQUILLIAN_COMPONENT_WITH_TESTS_NAME = "test.jar";
     private static final String EAR_COMPONENT_FOR_ITEST_NAME = "stat-repository_it.ear";
     private static final String JPA_JTA_DATA_SOURCE = "default";
@@ -184,7 +184,8 @@ public class StatRepositoryJpaDaoIT extends Arquillian
             for (PersistenceUnit<PersistenceDescriptor> item : descriptor.getAllPersistenceUnit()) {
                 if (JPA_JTA_DATA_SOURCE.equals(item.getName())) {
                     item.jtaDataSource(Config.DB_JNDI);
-                    //setPropertyInPersistenceUnit(item, "hibernate.hbm2ddl.auto", HIBERNATE_HBM2DDL_AUTO_VALUE);
+                    // setPropertyInPersistenceUnit(item, "hibernate.hbm2ddl.auto",
+                    // HIBERNATE_HBM2DDL_AUTO_VALUE);
                     break;
                 }
             }
@@ -286,14 +287,14 @@ public class StatRepositoryJpaDaoIT extends Arquillian
         // given
 
         // when - transaction handled by Arquillian Persistence Extension
-        //beginTransaction();
+        // beginTransaction();
         ResolutionEntity testEntity = EntitiesHelper.newResolutionEntity();
         resolutionDao.create(testEntity);
-        //commitTransaction();
+        // commitTransaction();
 
         // then - checking by @ShouldMatchDataSet
-        //String[] filterTable = { Schema.RESOLUTION_TABLE_NAME };
-        //EntitiesHelper.assertWithDb(Config.DB_TEST_DATASET, filterTable);
+        // String[] filterTable = { Schema.RESOLUTION_TABLE_NAME };
+        // EntitiesHelper.assertWithDb(Config.DB_TEST_DATASET, filterTable);
     }
 
 
@@ -327,17 +328,17 @@ public class StatRepositoryJpaDaoIT extends Arquillian
     public void testStatisticPersist() throws Exception
     {
         // given
-        //dbHelper.clearData(Config.DB_TEST_DATASET);
+        // dbHelper.clearData(Config.DB_TEST_DATASET);
 
         // when
-        //beginTransaction();
+        // beginTransaction();
         StatisticEntity testEntity = EntitiesHelper.newStatisticEntity();
         statisticDao.create(testEntity);
-        //commitTransaction();
+        // commitTransaction();
 
         // then
-        //String[] filterTable = { Schema.RESOLUTION_TABLE_NAME, Schema.STATISTIC_TABLE_NAME };
-        //EntitiesHelper.assertWithDb(Config.DB_TEST_DATASET, filterTable);
+        // String[] filterTable = { Schema.RESOLUTION_TABLE_NAME, Schema.STATISTIC_TABLE_NAME };
+        // EntitiesHelper.assertWithDb(Config.DB_TEST_DATASET, filterTable);
     }
 
 

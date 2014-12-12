@@ -18,6 +18,14 @@
                          <representation mediaType="application/xml" element="art:statistic"/>
                     </request>
                </method>
+               <method name="GET" id="getWadl">
+                    <request>
+                         <param name="wadl" required="true" style="query"/>
+                    </request>
+                    <response>
+                         <representation mediaType="application/xml"/>
+                     </response>
+               </method>
           </resource>
      </resources>
 </application>

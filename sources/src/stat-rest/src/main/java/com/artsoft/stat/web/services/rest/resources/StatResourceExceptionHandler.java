@@ -30,7 +30,7 @@ public class StatResourceExceptionHandler implements ExceptionMapper<StatResourc
     @Override
     public Response toResponse(final StatResourceException e)
     {
-        logger.error("Unexpected exception occured during handling request.");
+        logger.error("Unexpected exception occured during handling request.", e);
         return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(Helper.exceptionCauseChain(e)).build();
     }
 }
