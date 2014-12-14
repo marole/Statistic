@@ -17,6 +17,7 @@ import com.artsoft.stat.web.services.rest.resources.ExceptionHandler;
 import com.artsoft.stat.web.services.rest.resources.StatResourceApplicationExceptionHandler;
 import com.artsoft.stat.web.services.rest.resources.StatResourceExceptionHandler;
 import com.artsoft.stat.web.services.rest.resources.StatResourceService;
+import com.artsoft.stat.web.services.rest.resources.StatResourceWadlInfo;
 import com.artsoft.stat.web.services.rest.resources.UnmarshalExceptionHandler;
 
 
@@ -42,6 +43,7 @@ public class StatisticApplication extends Application
         Set<Class<?>> classes = new HashSet<>();
 
         classes.add(StatResourceService.class);
+        classes.add(StatResourceWadlInfo.class);
 
         classes.add(StatisticContextResolver.class);
 

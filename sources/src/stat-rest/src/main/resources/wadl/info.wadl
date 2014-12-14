@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<application xmlns="http://wadl.dev.java.net/2009/02"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://wadl.dev.java.net/2009/02 wadl.xsd"
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+   xmlns:art="http://www.artsoft.com/stats">
+    <doc xml:lang="en" title="Statistic services information"/>
+
+    <resources base="http://localhost:8080/stat-rest/">
+        <resource path="{path : .+}" id="StatResourceWadl">
+            <method name="GET" id="getExternal">
+                <request>
+                    <param name="path" required="true" style="template" type="xs:string"/>
+                </request>
+                <response>
+                    <representation mediaType="application/xml"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -15,15 +15,15 @@
         <project.config.file.path>${project.parent.relativePath}/../local.properties</project.config.file.path>
 
         <!-- Build configurations -->
-        <restfull-resources-directory>src/main/resources</restfull-resources-directory>
-        <restfull-output-resources-directory>${project.build.directory}/generated</restfull-output-resources-directory>
+        <restfull-resources-dir>src/main/resources</restfull-resources-dir>
+        <restfull-resources-context-dir>wadl</restfull-resources-context-dir>
+        <restfull-output-resources-dir>${project.build.directory}/generated</restfull-output-resources-dir>
         
-        <wadl2java-output-directory>${restfull-output-resources-directory}/src/main/java</wadl2java-output-directory>
-        <restfull-wadl-localPath>statistics.wadl</restfull-wadl-localPath>
-        <restfull-wadl-filePath>${restfull-resources-directory}/${restfull-wadl-localPath}</restfull-wadl-filePath>
-        <jaxb2-input-binding-filePath>${restfull-resources-directory}/jaxb/stats.xjb</jaxb2-input-binding-filePath>
-        <jaxb2-resource-output-directory>${restfull-output-resources-directory}/src/main/resources</jaxb2-resource-output-directory>
-        <xml-schema-localPath>schemas/stats.xsd</xml-schema-localPath>
+        <wadl2java-output-dir>${restfull-output-resources-dir}/src/main/java</wadl2java-output-dir>
+        <restfull-statistic-wadl-filePath>${restfull-resources-dir}/${restfull-resources-context-dir}/statistics.wadl</restfull-statistic-wadl-filePath>
+        <restfull-info-wadl-filePath>${restfull-resources-dir}/${restfull-resources-context-dir}/info.wadl</restfull-info-wadl-filePath>
+        <jaxb2-input-binding-filePath>${restfull-resources-dir}/${restfull-resources-context-dir}/jaxb/stats.xjb</jaxb2-input-binding-filePath>
+        <xml-schema-localPath>${restfull-resources-context-dir}/schemas/stats.xsd</xml-schema-localPath>
         
         <!-- Project dependencies -->
         <stat-repository.version>${project.version}</stat-repository.version>
@@ -428,10 +428,10 @@
                                 <goal>wadl2java</goal>
                             </goals>
                             <configuration>
-                                <sourceRoot>${wadl2java-output-directory}</sourceRoot>
+                                <sourceRoot>${wadl2java-output-dir}</sourceRoot>
                                 <wadlOptions>
                                     <wadlOption>
-                                        <wadl>${restfull-wadl-filePath}</wadl>
+                                        <wadl>${restfull-statistic-wadl-filePath}</wadl>
                                         <packagename>com.artsoft.stat.web.services.rest.api</packagename>
                                         <bindingFiles>
                                             <bindingFile>${jaxb2-input-binding-filePath}</bindingFile>
@@ -443,6 +443,13 @@
                                             <extraarg>-xjc-npa</extraarg>
                                             <extraarg>-xjc-no-header</extraarg>
                                             <extraarg>-xjc-Xts:style:org.apache.commons.lang.builder.ToStringStyle.SHORT_PREFIX_STYLE</extraarg>
+                                        </extraargs>
+                                    </wadlOption>
+                                    <wadlOption>
+                                        <wadl>${restfull-info-wadl-filePath}</wadl>
+                                        <packagename>com.artsoft.stat.web.services.rest.api</packagename>
+                                        <extraargs>
+                                            <extraarg>-noVoidForEmptyResponses</extraarg>
                                         </extraargs>
                                     </wadlOption>
                                 </wadlOptions>

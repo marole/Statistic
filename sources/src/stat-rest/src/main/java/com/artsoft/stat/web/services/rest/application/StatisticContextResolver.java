@@ -55,7 +55,7 @@ public class StatisticContextResolver implements ContextResolver<JAXBContext>
          * @throws SAXException the SAX exception
          */
         protected ValidatingJAXBContext(final String schemaFile, final Class<?> classToBeBound) throws JAXBException,
-        SAXException
+            SAXException
         {
             contextDelegate = JAXBContext.newInstance(classToBeBound);
             schema = createXmlSchema(schemaFile);
