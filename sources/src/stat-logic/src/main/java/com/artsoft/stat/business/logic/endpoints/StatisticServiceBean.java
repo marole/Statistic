@@ -49,8 +49,7 @@ public class StatisticServiceBean implements StatisticServiceRemote
 
 
     @Override
-    public void newStatistic(final StatisticEntity statistic) throws InputDataViolationException,
-    IllegalArgumentException
+    public void newStatistic(final StatisticEntity statistic) throws InputDataViolationException
     {
         if (logger.isDebugEnabled()) {
             logger.debug("New statistic entity received: " + statistic);
@@ -74,6 +73,7 @@ public class StatisticServiceBean implements StatisticServiceRemote
         int width = statistic.getResolution().getWidth();
         int height = statistic.getResolution().getHeight();
 
+        // find resolution entity by use width and height
         ResolutionEntity res = resolutionDao.findByWidthAndHeight(width, height);
         if (res != null) {
             statistic.setResolution(res);
@@ -89,11 +89,9 @@ public class StatisticServiceBean implements StatisticServiceRemote
      * Validate statistic integrity.
      *
      * @param statistic the statistic object
-     * @throws InputDataViolationException if statistic entity object data is invalid
-     * @throws IllegalArgumentException if statistic entity object is null
+     * @throws InputDataViolationException if statistic entity object is invalid
      */
-    private void validateStatIntegrity(final StatisticEntity statistic) throws InputDataViolationException,
-    IllegalArgumentException
+    private void validateStatIntegrity(final StatisticEntity statistic) throws InputDataViolationException
     {
         if (logger.isTraceEnabled()) {
             logger.trace("Start validation of statistic entity: " + statistic);
@@ -101,7 +99,7 @@ public class StatisticServiceBean implements StatisticServiceRemote
 
         if (statistic == null) {
             logger.debug("Statistic entity object is null.");
-            throw new IllegalArgumentException("Statistic entity object is null.");
+            throw new InputDataViolationException("Statistic entity object is null.");
         }
 
         Set<ConstraintViolation<StatisticEntity>> constraintViolations = validator.validate(statistic);

@@ -13,7 +13,9 @@ import org.apache.commons.io.IOUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import com.artsoft.stat.business.logic.api.InputDataViolationException;
 import com.artsoft.stat.business.logic.api.StatisticServiceRemote;
+import com.artsoft.stat.web.services.rest.api.StatResourceApplicationException;
 import com.artsoft.stat.web.services.rest.api.StatResourceRest;
 import com.artsoft.stat.web.services.rest.domain.Statistic;
 
@@ -46,8 +48,15 @@ public class StatResourceService implements StatResourceRest
 
         logger.trace("Initiate sending statistic object to ejb.");
 
-        // invoke statistic logic
-        handler.invoke(statistic);
+        try {
+            // invoke statistic logic
+            handler.invoke(statistic);
+        }
+        catch (InputDataViolationException e) {
+            // input data provided to the service are incorrect
+            logger.info("Statistic data incorrect problem.");
+            throw new StatResourceApplicationException("Statistic data incorrect problem.", e);
+        }
 
         logger.info("<------------- Request handled successfully.");
         return null;

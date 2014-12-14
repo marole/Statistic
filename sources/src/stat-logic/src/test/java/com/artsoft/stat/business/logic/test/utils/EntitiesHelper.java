@@ -36,20 +36,20 @@ public class EntitiesHelper
 
     private static final Map<Integer, ResolutionEntity> RESOLUTION_ENTITY_REF =
         new HashMap<Integer, ResolutionEntity>() {
-        private static final long serialVersionUID = 1L;
-        {
-            put(1, new ResolutionEntity(100, 200));
-            put(2, new ResolutionEntity(300, 400));
-        }
-    };
+            private static final long serialVersionUID = 1L;
+            {
+                put(1, new ResolutionEntity(100, 200));
+                put(2, new ResolutionEntity(300, 400));
+            }
+        };
 
     private static final Map<Integer, StatisticEntity> STATISTIC_ENTITY_REF =
         new HashMap<Integer, StatisticEntity>() {
-        private static final long serialVersionUID = 1L;
-        {
-            put(1, new StatisticEntity("name0", "value0", RESOLUTION_ENTITY_REF.get(1)));
-        }
-    };
+            private static final long serialVersionUID = 1L;
+            {
+                put(1, new StatisticEntity("name0", "value0", RESOLUTION_ENTITY_REF.get(1)));
+            }
+        };
 
 
     private static DbTesterHelper dbHelper;

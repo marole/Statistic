@@ -93,7 +93,7 @@ public class StatisticServiceBeanTest
     /**
      * Test null statistic received.
      */
-    @Test(expectedExceptions = IllegalArgumentException.class)
+    @Test(expectedExceptions = InputDataViolationException.class)
     public void testNullStatisticReceived()
     {
         // given

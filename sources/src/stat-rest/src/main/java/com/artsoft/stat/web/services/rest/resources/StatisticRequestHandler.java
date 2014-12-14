@@ -43,9 +43,11 @@ public class StatisticRequestHandler
      * Invoke handling statistic request data.
      *
      * @param stat the statistic data to handle
-     * @throws IllegalArgumentException if request data is null
+     *
+     * @throws IllegalArgumentException if statistic data is null
+     * @throws InputDataViolationException the statistic data is incorrect
      */
-    public void invoke(final Statistic stat) throws IllegalArgumentException
+    public void invoke(final Statistic stat) throws IllegalArgumentException, InputDataViolationException
     {
         if (logger.isDebugEnabled()) {
             logger.debug("Start handling new statistic request: " + IOUtils.LINE_SEPARATOR + stat);
