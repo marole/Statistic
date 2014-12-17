@@ -18,13 +18,13 @@
         <restfull-resources-dir>src/main/resources</restfull-resources-dir>
         <restfull-resources-context-dir>wadl</restfull-resources-context-dir>
         <restfull-output-resources-dir>${project.build.directory}/generated</restfull-output-resources-dir>
-        
+
         <wadl2java-output-dir>${restfull-output-resources-dir}/src/main/java</wadl2java-output-dir>
         <restfull-statistic-wadl-filePath>${restfull-resources-dir}/${restfull-resources-context-dir}/statistics.wadl</restfull-statistic-wadl-filePath>
         <restfull-info-wadl-filePath>${restfull-resources-dir}/${restfull-resources-context-dir}/info.wadl</restfull-info-wadl-filePath>
         <jaxb2-input-binding-filePath>${restfull-resources-dir}/${restfull-resources-context-dir}/jaxb/stats.xjb</jaxb2-input-binding-filePath>
         <xml-schema-localPath>${restfull-resources-context-dir}/schemas/stats.xsd</xml-schema-localPath>
-        
+
         <!-- Project dependencies -->
         <stat-repository.version>${project.version}</stat-repository.version>
         <stat-logic.version>${project.version}</stat-logic.version>
@@ -164,11 +164,11 @@
                 <version>${commons-configuration.version}</version>
             </dependency>
             <dependency>
-            <groupId>org.apache.cxf</groupId>
-            <artifactId>cxf-wadl2java-plugin</artifactId>
-            <version>3.0.2</version>
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-wadl2java-plugin</artifactId>
+                <version>${cxf-wadl2java-plugin.version}</version>
             </dependency>
-            
+
 
             <!-- Dependencies used for testing -->
             <dependency>
