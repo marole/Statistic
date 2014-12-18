@@ -9,6 +9,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.annotation.Resource;
+import javax.ejb.Local;
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -25,6 +26,7 @@ import com.artsoft.stat.business.domain.dao.StatisticDao;
 import com.artsoft.stat.business.domain.model.ResolutionEntity;
 import com.artsoft.stat.business.domain.model.StatisticEntity;
 import com.artsoft.stat.business.logic.api.InputDataViolationException;
+import com.artsoft.stat.business.logic.api.StatisticServiceLocal;
 import com.artsoft.stat.business.logic.api.StatisticServiceRemote;
 
 
@@ -34,9 +36,10 @@ import com.artsoft.stat.business.logic.api.StatisticServiceRemote;
  * @author Marcin Olejarczyk
  */
 @Stateless
-@Remote(value = StatisticServiceRemote.class)
+@Remote(StatisticServiceRemote.class)
+@Local(StatisticServiceLocal.class)
 @EJBExceptionHandler
-public class StatisticServiceBean implements StatisticServiceRemote
+public class StatisticServiceBean implements StatisticServiceRemote, StatisticServiceLocal
 {
     private static final Log logger = LogFactory.getLog(StatisticServiceBean.class);
 

@@ -15,7 +15,7 @@ import org.apache.commons.logging.LogFactory;
 import com.artsoft.stat.business.domain.model.ResolutionEntity;
 import com.artsoft.stat.business.domain.model.StatisticEntity;
 import com.artsoft.stat.business.logic.api.InputDataViolationException;
-import com.artsoft.stat.business.logic.api.StatisticServiceRemote;
+import com.artsoft.stat.business.logic.api.StatisticService;
 import com.artsoft.stat.web.services.rest.domain.Statistic;
 
 
@@ -25,7 +25,7 @@ import com.artsoft.stat.web.services.rest.domain.Statistic;
 public class StatisticRequestHandler
 {
     private static final Log logger = LogFactory.getLog(StatisticRequestHandler.class);
-    private final StatisticServiceRemote statisticDataHandler;
+    private final StatisticService statisticDataHandler;
 
 
     /**
@@ -33,7 +33,7 @@ public class StatisticRequestHandler
      *
      * @param statisticDataHandler the statistic data handler
      */
-    public StatisticRequestHandler(final StatisticServiceRemote statisticDataHandler)
+    public StatisticRequestHandler(final StatisticService statisticDataHandler)
     {
         this.statisticDataHandler = statisticDataHandler;
     }

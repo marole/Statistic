@@ -14,7 +14,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import com.artsoft.stat.business.logic.api.InputDataViolationException;
-import com.artsoft.stat.business.logic.api.StatisticServiceRemote;
+import com.artsoft.stat.business.logic.api.StatisticServiceLocal;
 import com.artsoft.stat.web.services.rest.api.StatResourceApplicationException;
 import com.artsoft.stat.web.services.rest.api.StatResourceRest;
 import com.artsoft.stat.web.services.rest.domain.Statistic;
@@ -29,7 +29,7 @@ public class StatResourceService implements StatResourceRest
     private StatisticRequestHandler handler;
 
     @EJB
-    private StatisticServiceRemote statisticLogicBean;
+    private StatisticServiceLocal statisticLogicBean;
 
 
     @Override
