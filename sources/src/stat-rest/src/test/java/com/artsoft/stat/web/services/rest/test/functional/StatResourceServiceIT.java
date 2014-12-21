@@ -137,7 +137,7 @@ public class StatResourceServiceIT extends Arquillian
         SoapUIProTestCaseRunner runner = new SoapUIProTestCaseRunner();
         runner.setProjectFile("src/test/resources/soapUI/soapui-project.xml");
         runner.setProjectPassword("12maol09");
-        runner.setHost(serverUrl.getHost() + ":" + serverUrl.getPort());
+        runner.setHost(serverUrl.getHost() + ":" + 8443);
         runner.setPrintReport(true);
         runner.setJUnitReport(true);
         runner.setOutputFolder("target/surefire-reports/soapUI");
