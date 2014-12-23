@@ -13,6 +13,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <project.config.file.path>${project.parent.relativePath}/../local.properties</project.config.file.path>
+        <scm.git.location>scm:git:ssh://git@bitbucket.org/statistic.git</scm.git.location>
 
         <!-- Build configurations -->
         <restfull-resources-dir>src/main/resources</restfull-resources-dir>
@@ -24,12 +25,6 @@
         <restfull-info-wadl-filePath>${restfull-resources-dir}/${restfull-resources-context-dir}/info.wadl</restfull-info-wadl-filePath>
         <jaxb2-input-binding-filePath>${restfull-resources-dir}/${restfull-resources-context-dir}/jaxb/stats.xjb</jaxb2-input-binding-filePath>
         <xml-schema-localPath>${restfull-resources-context-dir}/schemas/stats.xsd</xml-schema-localPath>
-
-        <!-- Project dependencies -->
-        <stat-repository.version>${project.version}</stat-repository.version>
-        <stat-logic.version>${project.version}</stat-logic.version>
-        <stat-rest.version>${project.version}</stat-rest.version>
-        <stat-web.version>${project.version}</stat-web.version>
 
         <!-- Dependency library versions -->
         <commons-io.version>2.4</commons-io.version>
@@ -45,7 +40,7 @@
         <jboss-as-arquillian-container-managed.version>7.1.1.Final</jboss-as-arquillian-container-managed.version>
         <dbunit.version>2.5.0</dbunit.version>
         <guice.version>2.0</guice.version>
-        <utils.version>0.0.1-SNAPSHOT</utils.version>
+        <utils.version>1.0.0</utils.version>
         <soapui.pro.version>5.1.1</soapui.pro.version>
         <reflections.version>0.9.9-RC1</reflections.version>
         <mysql-connector.version>5.1.32</mysql-connector.version>
@@ -77,6 +72,7 @@
         <maven-javadoc-plugin.version>2.10.1</maven-javadoc-plugin.version>
         <maven-project-info-reports-plugin.version>2.7</maven-project-info-reports-plugin.version>
         <maven-jxr-plugin.version>2.5</maven-jxr-plugin.version>
+        <maven-release-plugin.version>2.5.1</maven-release-plugin.version>
 
         <jaxb2-maven-plugin.version>1.5</jaxb2-maven-plugin.version>
         <jaxb2-basics.version>0.6.5</jaxb2-basics.version>
@@ -99,24 +95,24 @@
             <dependency>
                 <groupId>com.artsoft</groupId>
                 <artifactId>stat-repository</artifactId>
-                <version>${stat-repository.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.artsoft</groupId>
                 <artifactId>stat-logic</artifactId>
-                <version>${stat-logic.version}</version>
+                <version>${project.version}</version>
                 <type>ejb</type>
             </dependency>
             <dependency>
                 <groupId>com.artsoft</groupId>
                 <artifactId>stat-rest</artifactId>
-                <version>${stat-rest.version}</version>
+                <version>${project.version}</version>
                 <type>war</type>
             </dependency>
             <dependency>
                 <groupId>com.artsoft</groupId>
                 <artifactId>stat-web</artifactId>
-                <version>${stat-web.version}</version>
+                <version>${project.version}</version>
                 <type>war</type>
             </dependency>
 
@@ -358,6 +354,11 @@
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-release-plugin</artifactId>
+                    <version>${maven-release-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>${maven-surefire-plugin.version}</version>
                     <configuration>
@@ -553,6 +554,11 @@
             </build>
         </profile>
     </profiles>
+
+    <scm>
+        <connection>${scm.git.location}</connection>
+        <developerConnection>${scm.git.location}</developerConnection>
+    </scm>
 
     <organization>
         <name>ArtSoft</name>

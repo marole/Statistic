@@ -18,9 +18,8 @@
             <artifactId>javaee-web-api</artifactId>
         </dependency>
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>com.artsoft</groupId>
             <artifactId>stat-logic</artifactId>
-            <version>${stat-logic.version}</version>
             <type>ejb</type>
             <scope>provided</scope>
         </dependency>
