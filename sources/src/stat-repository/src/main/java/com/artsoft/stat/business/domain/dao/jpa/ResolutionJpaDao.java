@@ -18,7 +18,7 @@ import com.artsoft.stat.business.domain.model.ResolutionEntity;
 
 /**
  * The JPA DAO for need of Resolution object.
- * 
+ *
  * @author Marcin Olejarczyk
  */
 public class ResolutionJpaDao extends JpaDao<ResolutionEntity, Integer> implements ResolutionDao

@@ -28,8 +28,8 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
  */
 @Entity
 @Table(name = "resolution",
-uniqueConstraints = @UniqueConstraint(name = "uniqueResolution",
-columnNames = { "height", "width" }))
+    uniqueConstraints = @UniqueConstraint(name = "uniqueResolution",
+        columnNames = { "height", "width" }))
 @NamedQueries({
     @NamedQuery(name = "Resolution.findByWidthAndHeight",
         query = "SELECT res FROM ResolutionEntity AS res WHERE "

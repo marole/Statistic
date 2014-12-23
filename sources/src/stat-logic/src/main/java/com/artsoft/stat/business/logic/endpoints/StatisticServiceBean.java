@@ -9,6 +9,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.annotation.Resource;
+import javax.ejb.Local;
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -25,18 +26,20 @@ import com.artsoft.stat.business.domain.dao.StatisticDao;
 import com.artsoft.stat.business.domain.model.ResolutionEntity;
 import com.artsoft.stat.business.domain.model.StatisticEntity;
 import com.artsoft.stat.business.logic.api.InputDataViolationException;
+import com.artsoft.stat.business.logic.api.StatisticServiceLocal;
 import com.artsoft.stat.business.logic.api.StatisticServiceRemote;
 
 
 /**
  * Session Bean implementation class StatisticServiceImpl.
- * 
+ *
  * @author Marcin Olejarczyk
  */
 @Stateless
-@Remote(value = StatisticServiceRemote.class)
+@Remote(StatisticServiceRemote.class)
+@Local(StatisticServiceLocal.class)
 @EJBExceptionHandler
-public class StatisticServiceBean implements StatisticServiceRemote
+public class StatisticServiceBean implements StatisticServiceRemote, StatisticServiceLocal
 {
     private static final Log logger = LogFactory.getLog(StatisticServiceBean.class);
 
@@ -49,8 +52,7 @@ public class StatisticServiceBean implements StatisticServiceRemote
 
 
     @Override
-    public void newStatistic(final StatisticEntity statistic) throws InputDataViolationException,
-    IllegalArgumentException
+    public void newStatistic(final StatisticEntity statistic) throws InputDataViolationException
     {
         if (logger.isDebugEnabled()) {
             logger.debug("New statistic entity received: " + statistic);
@@ -74,6 +76,7 @@ public class StatisticServiceBean implements StatisticServiceRemote
         int width = statistic.getResolution().getWidth();
         int height = statistic.getResolution().getHeight();
 
+        // find resolution entity by use width and height
         ResolutionEntity res = resolutionDao.findByWidthAndHeight(width, height);
         if (res != null) {
             statistic.setResolution(res);
@@ -89,11 +92,9 @@ public class StatisticServiceBean implements StatisticServiceRemote
      * Validate statistic integrity.
      *
      * @param statistic the statistic object
-     * @throws InputDataViolationException if statistic entity object data is invalid
-     * @throws IllegalArgumentException if statistic entity object is null
+     * @throws InputDataViolationException if statistic entity object is invalid
      */
-    private void validateStatIntegrity(final StatisticEntity statistic) throws InputDataViolationException,
-    IllegalArgumentException
+    private void validateStatIntegrity(final StatisticEntity statistic) throws InputDataViolationException
     {
         if (logger.isTraceEnabled()) {
             logger.trace("Start validation of statistic entity: " + statistic);
@@ -101,7 +102,7 @@ public class StatisticServiceBean implements StatisticServiceRemote
 
         if (statistic == null) {
             logger.debug("Statistic entity object is null.");
-            throw new IllegalArgumentException("Statistic entity object is null.");
+            throw new InputDataViolationException("Statistic entity object is null.");
         }
 
         Set<ConstraintViolation<StatisticEntity>> constraintViolations = validator.validate(statistic);
@@ -115,7 +116,7 @@ public class StatisticServiceBean implements StatisticServiceRemote
             }
             buffer.append(IOUtils.LINE_SEPARATOR);
             buffer.append("]");
-            
+
             String message = "Failed validating the Statistic object integrity." + " " + IOUtils.LINE_SEPARATOR
                 + buffer;
             logger.info(message);

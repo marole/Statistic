@@ -15,10 +15,8 @@ import org.apache.commons.logging.LogFactory;
 import com.artsoft.stat.business.domain.model.ResolutionEntity;
 import com.artsoft.stat.business.domain.model.StatisticEntity;
 import com.artsoft.stat.business.logic.api.InputDataViolationException;
-import com.artsoft.stat.business.logic.api.StatisticServiceRemote;
+import com.artsoft.stat.business.logic.api.StatisticService;
 import com.artsoft.stat.web.services.rest.domain.Statistic;
-import com.artsoft.stat.web.services.rest.logic.decoder.DecoderException;
-import com.artsoft.stat.web.services.rest.logic.decoder.RequestDecoder;
 
 
 /**
@@ -27,19 +25,16 @@ import com.artsoft.stat.web.services.rest.logic.decoder.RequestDecoder;
 public class StatisticRequestHandler
 {
     private static final Log logger = LogFactory.getLog(StatisticRequestHandler.class);
-    private final RequestDecoder decoder;
-    private final StatisticServiceRemote statisticDataHandler;
+    private final StatisticService statisticDataHandler;
 
 
     /**
      * Instantiates a new statistic request handler.
      *
-     * @param decoder the request data decoder
      * @param statisticDataHandler the statistic data handler
      */
-    public StatisticRequestHandler(final RequestDecoder decoder, final StatisticServiceRemote statisticDataHandler)
+    public StatisticRequestHandler(final StatisticService statisticDataHandler)
     {
-        this.decoder = decoder;
         this.statisticDataHandler = statisticDataHandler;
     }
 
@@ -47,22 +42,23 @@ public class StatisticRequestHandler
     /**
      * Invoke handling statistic request data.
      *
-     * @param request the request data
-     * @throws DecoderException if an error was encountered while decoding request data
-     * @throws IllegalArgumentException if request data is null
+     * @param stat the statistic data to handle
+     *
+     * @throws IllegalArgumentException if statistic data is null
+     * @throws InputDataViolationException the statistic data is incorrect
      */
-    public void invoke(final String request) throws DecoderException, IllegalArgumentException
+    public void invoke(final Statistic stat) throws IllegalArgumentException, InputDataViolationException
     {
         if (logger.isDebugEnabled()) {
-            logger.debug("Start handling new statistic request: " + IOUtils.LINE_SEPARATOR + request);
+            logger.debug("Start handling new statistic request: " + IOUtils.LINE_SEPARATOR + stat);
         }
 
-        if (request == null) {
-            logger.info("Received request data is null.");
-            throw new IllegalArgumentException("Received request data is null.");
+        if (stat == null) {
+            logger.info("Received statistic data is null.");
+            throw new IllegalArgumentException("Received statistic data is null.");
         }
 
-        StatisticEntity entity = buildStatEntityObject(request);
+        StatisticEntity entity = buildStatEntityObject(stat);
         handleStatisticData(entity);
 
         logger.debug("Statistic request hzandling ended.");
@@ -72,14 +68,10 @@ public class StatisticRequestHandler
     /**
      * Builds the statistic entity object.
      *
-     * @param requestData the request data
-     * @return the statistic entity
-     * @throws DecoderException if an error was encountered while decoding request data
+     * @return the statistic entity data
      */
-    private StatisticEntity buildStatEntityObject(final String requestData) throws DecoderException
+    private StatisticEntity buildStatEntityObject(final Statistic stat)
     {
-        Statistic stat = decoder.decode(requestData);
-
         if (logger.isDebugEnabled()) {
             logger.debug("Decoded statistic data: " + stat);
         }

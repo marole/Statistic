@@ -17,7 +17,7 @@ public abstract class Helper
     {
     }
 
-    
+
     /**
      * Exception cause chain generator for given throwable object.
      *

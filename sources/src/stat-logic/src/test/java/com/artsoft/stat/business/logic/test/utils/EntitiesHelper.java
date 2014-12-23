@@ -57,7 +57,7 @@ public class EntitiesHelper
 
     /**
      * Assert resolution entity equals to reference data.
-     * 
+     *
      * @param entity the resolution entity to assert
      * @param id the id of resolution entity in reference
      */
@@ -72,7 +72,7 @@ public class EntitiesHelper
 
     /**
      * Assert statistic entity equals to reference data.
-     * 
+     *
      * @param entity the statistic entity to assert
      */
     public static void assertEqualsReference(final StatisticEntity entity)
@@ -89,7 +89,7 @@ public class EntitiesHelper
 
     /**
      * Assert dataset specified by parameter 'dataSetPath' with database according to given filter.
-     * 
+     *
      * @param dataSetPath the data set path
      * @param filterTables the filter tables
      * @throws DatabaseUnitException the database unit exception
@@ -105,7 +105,7 @@ public class EntitiesHelper
 
     /**
      * Gets the db helper.
-     * 
+     *
      * @return the db helper
      */
     public static DbTesterHelper getDbHelper()
@@ -116,7 +116,7 @@ public class EntitiesHelper
 
     /**
      * New resolution entity instance.
-     * 
+     *
      * @return the resolution entity
      */
     public static ResolutionEntity newResolutionEntity()
@@ -127,7 +127,7 @@ public class EntitiesHelper
 
     /**
      * New statistic entity instance.
-     * 
+     *
      * @return the statistic entity
      */
     public static StatisticEntity newStatisticEntity()
@@ -138,7 +138,7 @@ public class EntitiesHelper
 
     /**
      * Sets the db helper.
-     * 
+     *
      * @param dbHelper the db helper
      */
     public static void setDbHelper(final DbTesterHelper dbHelper)

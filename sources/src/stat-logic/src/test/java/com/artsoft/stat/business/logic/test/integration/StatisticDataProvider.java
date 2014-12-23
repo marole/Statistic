@@ -12,7 +12,7 @@ public class StatisticDataProvider
 {
     /**
      * Correct statistic object provider.
-     * 
+     *
      * @return the object[][]
      */
     @DataProvider(name = "correctStatisticDataProvider")
@@ -28,7 +28,7 @@ public class StatisticDataProvider
 
     /**
      * Incorrect statistic object provider.
-     * 
+     *
      * @return the object[][]
      */
     @DataProvider(name = "incorrectStatisticDataProvider")

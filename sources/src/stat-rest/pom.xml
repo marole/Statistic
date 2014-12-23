@@ -5,7 +5,7 @@
     <parent>
         <groupId>com.artsoft</groupId>
         <artifactId>stat-root</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>1.0.0</version>
     </parent>
     <artifactId>stat-rest</artifactId>
     <packaging>war</packaging>
@@ -37,7 +37,11 @@
             <groupId>commons-lang</groupId>
             <artifactId>commons-lang</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>commons-configuration</groupId>
+            <artifactId>commons-configuration</artifactId>
+        </dependency>
+        
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
@@ -51,11 +55,6 @@
         <dependency>
             <groupId>com.artsoft</groupId>
             <artifactId>utils</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>commons-configuration</groupId>
-            <artifactId>commons-configuration</artifactId>
             <scope>test</scope>
         </dependency>
 
@@ -111,15 +110,25 @@
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>false</filtering>
                 <excludes>
+                    <exclude>**/*.xml</exclude>
                     <exclude>jaxb/*.xjb</exclude>
                 </excludes>
             </resource>
         </resources>
+        
         <plugins>
             <plugin>
                 <groupId>org.apache.cxf</groupId>
-                <artifactId>cxf-xjc-plugin</artifactId>
+                <artifactId>cxf-wadl2java-plugin</artifactId>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

@@ -4,7 +4,7 @@
 
     <groupId>com.artsoft</groupId>
     <artifactId>stat-root</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>pom</packaging>
 
     <name>ArtSoft Statistic Root</name>
@@ -12,22 +12,19 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <project.config.file.path>${project.parent.relativePath}/../project.properties</project.config.file.path>
+        <project.config.file.path>${project.parent.relativePath}/../local.properties</project.config.file.path>
+        <scm.git.location>scm:git:ssh://git@bitbucket.org/statistic.git</scm.git.location>
 
         <!-- Build configurations -->
-        <restfull-schemaDomain-directory>src/main/resources/schemas</restfull-schemaDomain-directory>
-        <restfull-schemaDomain-file>stats.xsd</restfull-schemaDomain-file>
-        <restfull-schemaDomain-filePath>${restfull-schemaDomain-directory}/${restfull-schemaDomain-file}</restfull-schemaDomain-filePath>
+        <restfull-resources-dir>src/main/resources</restfull-resources-dir>
+        <restfull-resources-context-dir>wadl</restfull-resources-context-dir>
+        <restfull-output-resources-dir>${project.build.directory}/generated</restfull-output-resources-dir>
 
-        <jaxb2-input-binding-filePath>src/main/resources/jaxb/stats.xjb</jaxb2-input-binding-filePath>
-        <jaxb2-java-output-directory>${project.build.directory}/generated/src/main/java</jaxb2-java-output-directory>
-        <jaxb2-resource-output-directory>${project.build.directory}/generated/src/main/resources</jaxb2-resource-output-directory>
-
-        <!-- Project dependencies -->
-        <stat-repository.version>${project.version}</stat-repository.version>
-        <stat-logic.version>${project.version}</stat-logic.version>
-        <stat-rest.version>${project.version}</stat-rest.version>
-        <stat-web.version>${project.version}</stat-web.version>
+        <wadl2java-output-dir>${restfull-output-resources-dir}/src/main/java</wadl2java-output-dir>
+        <restfull-statistic-wadl-filePath>${restfull-resources-dir}/${restfull-resources-context-dir}/statistics.wadl</restfull-statistic-wadl-filePath>
+        <restfull-info-wadl-filePath>${restfull-resources-dir}/${restfull-resources-context-dir}/info.wadl</restfull-info-wadl-filePath>
+        <jaxb2-input-binding-filePath>${restfull-resources-dir}/${restfull-resources-context-dir}/jaxb/stats.xjb</jaxb2-input-binding-filePath>
+        <xml-schema-localPath>${restfull-resources-context-dir}/schemas/stats.xsd</xml-schema-localPath>
 
         <!-- Dependency library versions -->
         <commons-io.version>2.4</commons-io.version>
@@ -43,7 +40,7 @@
         <jboss-as-arquillian-container-managed.version>7.1.1.Final</jboss-as-arquillian-container-managed.version>
         <dbunit.version>2.5.0</dbunit.version>
         <guice.version>2.0</guice.version>
-        <utils.version>0.0.1-SNAPSHOT</utils.version>
+        <utils.version>1.0.0</utils.version>
         <soapui.pro.version>5.1.1</soapui.pro.version>
         <reflections.version>0.9.9-RC1</reflections.version>
         <mysql-connector.version>5.1.32</mysql-connector.version>
@@ -75,10 +72,12 @@
         <maven-javadoc-plugin.version>2.10.1</maven-javadoc-plugin.version>
         <maven-project-info-reports-plugin.version>2.7</maven-project-info-reports-plugin.version>
         <maven-jxr-plugin.version>2.5</maven-jxr-plugin.version>
+        <maven-release-plugin.version>2.5.1</maven-release-plugin.version>
 
         <jaxb2-maven-plugin.version>1.5</jaxb2-maven-plugin.version>
         <jaxb2-basics.version>0.6.5</jaxb2-basics.version>
         <cxf-xjc-plugin.version>2.7.0</cxf-xjc-plugin.version>
+        <cxf-wadl2java-plugin.version>3.0.2</cxf-wadl2java-plugin.version>
         <jacoco-maven-plugin.version>0.7.2.201409121644</jacoco-maven-plugin.version>
     </properties>
 
@@ -96,24 +95,24 @@
             <dependency>
                 <groupId>com.artsoft</groupId>
                 <artifactId>stat-repository</artifactId>
-                <version>${stat-repository.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.artsoft</groupId>
                 <artifactId>stat-logic</artifactId>
-                <version>${stat-logic.version}</version>
+                <version>${project.version}</version>
                 <type>ejb</type>
             </dependency>
             <dependency>
                 <groupId>com.artsoft</groupId>
                 <artifactId>stat-rest</artifactId>
-                <version>${stat-rest.version}</version>
+                <version>${project.version}</version>
                 <type>war</type>
             </dependency>
             <dependency>
                 <groupId>com.artsoft</groupId>
                 <artifactId>stat-web</artifactId>
-                <version>${stat-web.version}</version>
+                <version>${project.version}</version>
                 <type>war</type>
             </dependency>
 
@@ -160,6 +159,12 @@
                 <artifactId>commons-configuration</artifactId>
                 <version>${commons-configuration.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-wadl2java-plugin</artifactId>
+                <version>${cxf-wadl2java-plugin.version}</version>
+            </dependency>
+
 
             <!-- Dependencies used for testing -->
             <dependency>
@@ -349,6 +354,11 @@
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-release-plugin</artifactId>
+                    <version>${maven-release-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>${maven-surefire-plugin.version}</version>
                     <configuration>
@@ -409,37 +419,51 @@
 
                 <plugin>
                     <groupId>org.apache.cxf</groupId>
-                    <artifactId>cxf-xjc-plugin</artifactId>
-                    <version>${cxf-xjc-plugin.version}</version>
-                    <configuration>
-                        <extensions>
-                            <extension>org.apache.cxf.xjcplugins:cxf-xjc-ts:${cxf-xjc-plugin.version}</extension>
-                        </extensions>
-                    </configuration>
+                    <artifactId>cxf-wadl2java-plugin</artifactId>
+                    <version>${cxf-wadl2java-plugin.version}</version>
                     <executions>
                         <execution>
-                            <id>generate-sources</id>
+                            <id>wadl2java</id>
                             <phase>generate-sources</phase>
                             <goals>
-                                <goal>xsdtojava</goal>
+                                <goal>wadl2java</goal>
                             </goals>
                             <configuration>
-                                <sourceRoot>${jaxb2-java-output-directory}</sourceRoot>
-                                <xsdOptions>
-                                    <xsdOption>
-                                        <xsd>${restfull-schemaDomain-filePath}</xsd>
-                                        <bindingFile>${jaxb2-input-binding-filePath}</bindingFile>
-                                        <extension>true</extension>
-                                        <extensionArgs>
-                                            <arg>-Xts:style:org.apache.commons.lang.builder.ToStringStyle.SHORT_PREFIX_STYLE</arg>
-                                            <extensionArg>-npa</extensionArg>
-                                            <extensionArg>-no-header</extensionArg>
-                                        </extensionArgs>
-                                    </xsdOption>
-                                </xsdOptions>
+                                <sourceRoot>${wadl2java-output-dir}</sourceRoot>
+                                <wadlOptions>
+                                    <wadlOption>
+                                        <wadl>${restfull-statistic-wadl-filePath}</wadl>
+                                        <packagename>com.artsoft.stat.web.services.rest.api</packagename>
+                                        <bindingFiles>
+                                            <bindingFile>${jaxb2-input-binding-filePath}</bindingFile>
+                                        </bindingFiles>
+                                        <extraargs>
+                                            <extraarg>-sp</extraarg>
+                                            <extraarg>http://www.artsoft.com/stats=com.artsoft.stat.web.services.rest.domain</extraarg>
+                                            <extraarg>-noVoidForEmptyResponses</extraarg>
+                                            <extraarg>-xjc-npa</extraarg>
+                                            <extraarg>-xjc-no-header</extraarg>
+                                            <extraarg>-xjc-Xts:style:org.apache.commons.lang.builder.ToStringStyle.SHORT_PREFIX_STYLE</extraarg>
+                                        </extraargs>
+                                    </wadlOption>
+                                    <wadlOption>
+                                        <wadl>${restfull-info-wadl-filePath}</wadl>
+                                        <packagename>com.artsoft.stat.web.services.rest.api</packagename>
+                                        <extraargs>
+                                            <extraarg>-noVoidForEmptyResponses</extraarg>
+                                        </extraargs>
+                                    </wadlOption>
+                                </wadlOptions>
                             </configuration>
                         </execution>
                     </executions>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.apache.cxf.xjcplugins</groupId>
+                            <artifactId>cxf-xjc-ts</artifactId>
+                            <version>${cxf-xjc-plugin.version}</version>
+                        </dependency>
+                    </dependencies>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -530,6 +554,11 @@
             </build>
         </profile>
     </profiles>
+
+    <scm>
+        <connection>${scm.git.location}</connection>
+        <developerConnection>${scm.git.location}</developerConnection>
+    </scm>
 
     <organization>
         <name>ArtSoft</name>

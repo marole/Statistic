@@ -23,7 +23,7 @@ public class StatisticServiceException extends RuntimeException
 
     /**
      * Instantiates a new statistic service exception.
-     * 
+     *
      * @param message the message
      */
     public StatisticServiceException(final String message)
@@ -34,7 +34,7 @@ public class StatisticServiceException extends RuntimeException
 
     /**
      * Instantiates a new statistic service exception.
-     * 
+     *
      * @param message the message
      * @param cause the cause
      */
@@ -46,7 +46,7 @@ public class StatisticServiceException extends RuntimeException
 
     /**
      * Instantiates a new statistic service exception.
-     * 
+     *
      * @param message the message
      * @param cause the cause
      * @param enableSuppression the enable suppression
@@ -61,7 +61,7 @@ public class StatisticServiceException extends RuntimeException
 
     /**
      * Instantiates a new statistic service exception.
-     * 
+     *
      * @param cause the cause
      */
     public StatisticServiceException(final Throwable cause)
