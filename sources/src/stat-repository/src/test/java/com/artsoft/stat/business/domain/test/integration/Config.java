@@ -1,3 +1,6 @@
+/*
+ * ArtSoft 2015.
+ */
 
 package com.artsoft.stat.business.domain.test.integration;
 

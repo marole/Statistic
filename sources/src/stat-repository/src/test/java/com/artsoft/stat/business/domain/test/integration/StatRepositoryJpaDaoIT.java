@@ -1,3 +1,6 @@
+/*
+ * ArtSoft 2015.
+ */
 
 package com.artsoft.stat.business.domain.test.integration;
 
@@ -46,12 +49,16 @@ import com.artsoft.stat.business.domain.model.StatisticEntity;
 import com.artsoft.stat.business.domain.test.utils.EntitiesHelper;
 import com.artsoft.utils.io.FileHandler;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+
 
 /**
  * The integration test of statistic repository component.
  *
+ * <p>
  * The source code of this test class is mostly based on Arquillian Persistence Extension. The
  * commented code is legacy code which was based only on private library using DbUnit framework.
+ * </p>
  */
 @Test(groups = "integration")
 public class StatRepositoryJpaDaoIT extends Arquillian
@@ -62,7 +69,7 @@ public class StatRepositoryJpaDaoIT extends Arquillian
         "org.dbunit:dbunit",
         "commons-configuration:commons-configuration",
         "com.google.inject:guice",
-        "com.artsoft:utils" };
+        "com.artsoft:utils"};
     private static final String ARQUILLIAN_COMPONENT_WITH_TESTS_NAME = "test.jar";
     private static final String EAR_COMPONENT_FOR_ITEST_NAME = "stat-repository_it.ear";
     private static final String JPA_JTA_DATA_SOURCE = "default";
@@ -150,13 +157,13 @@ public class StatRepositoryJpaDaoIT extends Arquillian
          * don't know where to add it.
          */
         JavaArchive jarWithTest = ShrinkWrap.create(ExplodedImporter.class, ARQUILLIAN_COMPONENT_WITH_TESTS_NAME)
-            .importDirectory((new File(TEST_CLASSES_PATH)))
+            .importDirectory(new File(TEST_CLASSES_PATH))
             .as(JavaArchive.class);
 
 
         EnterpriseArchive ear = ShrinkWrap.create(EnterpriseArchive.class, EAR_COMPONENT_FOR_ITEST_NAME)
             .addAsLibraries(jarUnderTest)
-            .addAsLibraries(libsList.toArray(new File[0]))
+            .addAsLibraries(libsList.toArray(new File[libsList.size()]))
             .addAsLibraries(jarWithTest)
             .addAsManifestResource(createApplicationXml(), EAR_APPLICATION_FILE_NAME);
 
@@ -175,11 +182,10 @@ public class StatRepositoryJpaDaoIT extends Arquillian
     }
 
 
-    @SuppressWarnings("unused")
-    private static StringAsset createPersistenceXml()
+    @SuppressFBWarnings("UPM_UNCALLED_PRIVATE_METHOD")
+    private static StringAsset createPersistenceXml() throws Exception
     {
-        try {
-            InputStream is = StatRepositoryJpaDaoIT.class.getResourceAsStream(JPA_PERSISTENCE_FILE_PATH);
+        try (InputStream is = StatRepositoryJpaDaoIT.class.getResourceAsStream(JPA_PERSISTENCE_FILE_PATH)) {
             PersistenceDescriptor descriptor = Descriptors.importAs(PersistenceDescriptor.class).fromStream(is);
             for (PersistenceUnit<PersistenceDescriptor> item : descriptor.getAllPersistenceUnit()) {
                 if (JPA_JTA_DATA_SOURCE.equals(item.getName())) {
@@ -192,14 +198,14 @@ public class StatRepositoryJpaDaoIT extends Arquillian
 
             return new StringAsset(descriptor.exportAsString());
         }
-        catch (Exception e) {
+        catch (RuntimeException e) {
             e.printStackTrace();
             throw e;
         }
     }
 
 
-    @SuppressWarnings("unused")
+    @SuppressFBWarnings("UPM_UNCALLED_PRIVATE_METHOD")
     private static void setPropertyInPersistenceUnit(final PersistenceUnit<PersistenceDescriptor> persistenceUnit,
         final String propertyName, final String propertyValue)
     {
@@ -349,7 +355,7 @@ public class StatRepositoryJpaDaoIT extends Arquillian
      * @throws NotSupportedException the not supported exception
      * @throws SystemException the system exception
      */
-    @SuppressWarnings("unused")
+    @SuppressFBWarnings("UPM_UNCALLED_PRIVATE_METHOD")
     private void beginTransaction() throws NotSupportedException, SystemException
     {
         utx.begin();
@@ -368,7 +374,7 @@ public class StatRepositoryJpaDaoIT extends Arquillian
      * @throws HeuristicRollbackException the heuristic rollback exception
      * @throws SystemException the system exception
      */
-    @SuppressWarnings("unused")
+    @SuppressFBWarnings("UPM_UNCALLED_PRIVATE_METHOD")
     private void commitTransaction() throws SecurityException, IllegalStateException, RollbackException,
         HeuristicMixedException, HeuristicRollbackException, SystemException
     {

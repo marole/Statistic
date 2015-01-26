@@ -17,8 +17,6 @@ import org.apache.commons.configuration.XMLPropertiesConfiguration;
  */
 public abstract class Constants
 {
-    private static final String CONFIG_FILE_NAME = "config.xml";
-
     /** Location of file contains xml schema of REST request data. */
     public static final String XML_SCHEMA_PATH;
 
@@ -27,6 +25,9 @@ public abstract class Constants
 
     /** Set of files with no client access. */
     public static final Set<String> FILES_WITH_NO_CLIENT_ACCESS = new HashSet<>();
+
+    private static final String CONFIG_FILE_NAME = "config.xml";
+
 
     static {
         try {
@@ -39,10 +40,5 @@ public abstract class Constants
         catch (ConfigurationException e) {
             throw new RuntimeException(e);
         }
-    }
-
-
-    private Constants()
-    {
     }
 }

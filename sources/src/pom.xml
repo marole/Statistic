@@ -4,7 +4,7 @@
 
     <groupId>com.artsoft</groupId>
     <artifactId>stat-root</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>ArtSoft Statistic Root</name>
@@ -44,6 +44,7 @@
         <soapui.pro.version>5.1.1</soapui.pro.version>
         <reflections.version>0.9.9-RC1</reflections.version>
         <mysql-connector.version>5.1.32</mysql-connector.version>
+        <findbugs.version>3.0.0</findbugs.version>
 
         <!-- Java SE i EE options -->
         <java-compiler.source.version>1.7</java-compiler.source.version>
@@ -164,7 +165,11 @@
                 <artifactId>cxf-wadl2java-plugin</artifactId>
                 <version>${cxf-wadl2java-plugin.version}</version>
             </dependency>
-
+            <dependency>
+                <groupId>com.google.code.findbugs</groupId>
+                <artifactId>findbugs</artifactId>
+                <version>${findbugs.version}</version>
+            </dependency>
 
             <!-- Dependencies used for testing -->
             <dependency>
@@ -362,7 +367,7 @@
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>${maven-surefire-plugin.version}</version>
                     <configuration>
-                        It is required by jacoco-maven-plugin to run it.
+                        <!-- It is required by jacoco-maven-plugin to run it. -->
                         <argLine>${jacoco.agent.argLine}</argLine>
                         <properties>
                             <property>

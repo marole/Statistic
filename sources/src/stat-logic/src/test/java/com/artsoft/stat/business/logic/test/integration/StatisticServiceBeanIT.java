@@ -1,3 +1,6 @@
+/*
+ * ArtSoft 2015.
+ */
 
 package com.artsoft.stat.business.logic.test.integration;
 
@@ -44,7 +47,7 @@ public class StatisticServiceBeanIT extends Arquillian
         "org.dbunit:dbunit",
         "commons-configuration:commons-configuration",
         "com.google.inject:guice",
-        "com.artsoft:utils" };
+        "com.artsoft:utils"};
     private static final String TEST_CLASSES_PATH = "./target/test-classes";
     private static final String ARQUILLIAN_COMPONENT_WITH_TESTS_NAME = "test.jar";
     private static final String WAR_TEST_COMPONENT_NAME_FOR_ITEST = "stat_logic_itest.war";
@@ -86,14 +89,14 @@ public class StatisticServiceBeanIT extends Arquillian
 
             // Test classes and test resources need to be added manually.
             JavaArchive jarWithTest = ShrinkWrap.create(ExplodedImporter.class, ARQUILLIAN_COMPONENT_WITH_TESTS_NAME)
-                .importDirectory((new File(TEST_CLASSES_PATH)))
+                .importDirectory(new File(TEST_CLASSES_PATH))
                 .as(JavaArchive.class);
 
             // create war structure for itest
             WebArchive war = ShrinkWrap.create(WebArchive.class, WAR_TEST_COMPONENT_NAME_FOR_ITEST)
                 .addAsLibraries(ejbModuleUnderTest)
                 .addAsLibraries(jarWithTest)
-                .addAsLibraries(libsList.toArray(new File[0]));
+                .addAsLibraries(libsList.toArray(new File[libsList.size()]));
 
             return war;
         }

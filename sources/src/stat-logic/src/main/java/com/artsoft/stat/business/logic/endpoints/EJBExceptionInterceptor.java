@@ -47,6 +47,7 @@ public class EJBExceptionInterceptor
             logger.trace("EJB Exception Handler Interceptor for '" + invocation.getMethod() + "' is invoked.");
         }
 
+        // CS_OFF: IllegalCatch
         try {
             // call original business method
             return invocation.proceed();
@@ -67,5 +68,6 @@ public class EJBExceptionInterceptor
         finally {
             logger.trace("EJB Exception Interceptor end.");
         }
+        // CS_ON: IllegalCatch
     }
 }

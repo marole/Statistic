@@ -5,7 +5,7 @@
     <parent>
         <groupId>com.artsoft</groupId>
         <artifactId>stat-root</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.1-SNAPSHOT</version>
     </parent>
     <artifactId>stat-repository</artifactId>
 
@@ -40,6 +40,10 @@
             <groupId>com.artsoft</groupId>
             <artifactId>utils</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>findbugs</artifactId>
         </dependency>
 
         <!-- Arquillian dependencies -->

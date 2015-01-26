@@ -47,17 +47,10 @@ public class StatResourceServiceIT extends Arquillian
     private static final String POM_MAVEN_FILE_NAME = "pom.xml";
     private static final String EAR_APPLICATION_FILE_NAME = "application.xml";
     private static final String WAR_MODULE_CONTEXT_ROOT = "/stat-rest";
+    private static final int SERVER_PORT = 8443;
 
     @ArquillianResource
     private URL serverUrl;
-
-
-    /**
-     * Instantiates a new statistic resource service it.
-     */
-    public StatResourceServiceIT()
-    {
-    }
 
 
     /**
@@ -98,12 +91,12 @@ public class StatResourceServiceIT extends Arquillian
             EnterpriseArchive ear = ShrinkWrap.create(EnterpriseArchive.class, EAR_COMPONENT_FOR_ITEST_NAME)
                 .addAsModule(warUnderTest)
                 .addAsModule(ejbModule)
-                .addAsLibraries(libsList.toArray(new File[0]))
+                .addAsLibraries(libsList.toArray(new File[libsList.size()]))
                 .addAsManifestResource(appDescr, EAR_APPLICATION_FILE_NAME);
 
             return ear;
         }
-        catch (Exception e) {
+        catch (RuntimeException e) {
             e.printStackTrace();
             throw new RuntimeException("Error during deployment test unit.", e);
         }
@@ -137,7 +130,7 @@ public class StatResourceServiceIT extends Arquillian
         SoapUIProTestCaseRunner runner = new SoapUIProTestCaseRunner();
         runner.setProjectFile("src/test/resources/soapUI/soapui-project.xml");
         runner.setProjectPassword("12maol09");
-        runner.setHost(serverUrl.getHost() + ":" + 8443);
+        runner.setHost(serverUrl.getHost() + ":" + SERVER_PORT);
         runner.setPrintReport(true);
         runner.setJUnitReport(true);
         runner.setOutputFolder("target/surefire-reports/soapUI");

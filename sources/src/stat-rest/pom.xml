@@ -5,7 +5,7 @@
     <parent>
         <groupId>com.artsoft</groupId>
         <artifactId>stat-root</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.1-SNAPSHOT</version>
     </parent>
     <artifactId>stat-rest</artifactId>
     <packaging>war</packaging>
@@ -41,7 +41,7 @@
             <groupId>commons-configuration</groupId>
             <artifactId>commons-configuration</artifactId>
         </dependency>
-        
+
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
@@ -124,7 +124,7 @@
                 </excludes>
             </resource>
         </resources>
-        
+
         <plugins>
             <plugin>
                 <groupId>org.apache.cxf</groupId>

@@ -39,7 +39,7 @@ public class StatisticEntity implements Serializable
     private String name;
     @NotNull
     private String value;
-    @ManyToOne(cascade = { CascadeType.PERSIST }, optional = false)
+    @ManyToOne(cascade = {CascadeType.PERSIST}, optional = false)
     @NotNull
     @Valid
     private ResolutionEntity resolution;

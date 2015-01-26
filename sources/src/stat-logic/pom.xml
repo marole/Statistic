@@ -5,7 +5,7 @@
     <parent>
         <groupId>com.artsoft</groupId>
         <artifactId>stat-root</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.1-SNAPSHOT</version>
     </parent>
     <artifactId>stat-logic</artifactId>
     <packaging>ejb</packaging>
@@ -25,6 +25,10 @@
             <groupId>org.glassfish.main.extras</groupId>
             <artifactId>glassfish-embedded-all</artifactId>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>findbugs</artifactId>
         </dependency>
 
         <dependency>

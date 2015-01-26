@@ -14,7 +14,6 @@ import javax.ejb.ApplicationException;
 @ApplicationException(rollback = true)
 public class InputDataViolationException extends StatisticServiceApplicationException
 {
-
     private static final long serialVersionUID = 1L;
 
 
@@ -58,8 +57,7 @@ public class InputDataViolationException extends StatisticServiceApplicationExce
      * @param enableSuppression the enable suppression
      * @param writableStackTrace the writable stack trace
      */
-    public InputDataViolationException(final String message, final Throwable cause,
-        final boolean enableSuppression,
+    public InputDataViolationException(final String message, final Throwable cause, final boolean enableSuppression,
         final boolean writableStackTrace)
     {
         super(message, cause, enableSuppression, writableStackTrace);

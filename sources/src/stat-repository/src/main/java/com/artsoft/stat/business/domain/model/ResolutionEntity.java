@@ -29,12 +29,12 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 @Entity
 @Table(name = "resolution",
     uniqueConstraints = @UniqueConstraint(name = "uniqueResolution",
-        columnNames = { "height", "width" }))
+        columnNames = {"height", "width"}))
 @NamedQueries({
     @NamedQuery(name = "Resolution.findByWidthAndHeight",
         query = "SELECT res FROM ResolutionEntity AS res WHERE "
             + "res.width = :" + Constants.Query.WIDTH_PARAM + " AND "
-            + "res.height = :" + Constants.Query.HEIGHT_PARAM) })
+            + "res.height = :" + Constants.Query.HEIGHT_PARAM)})
 public class ResolutionEntity implements Serializable
 {
     private static final long serialVersionUID = 1L;
