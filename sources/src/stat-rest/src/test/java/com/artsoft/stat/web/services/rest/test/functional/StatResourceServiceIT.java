@@ -63,7 +63,7 @@ public class StatResourceServiceIT extends Arquillian
     {
         try {
             List<File> libsList = new ArrayList<>();
-            PomEquippedResolveStage pomResolver = Maven.resolver().offline().loadPomFromFile(POM_MAVEN_FILE_NAME);
+            PomEquippedResolveStage pomResolver = Maven.resolver().loadPomFromFile(POM_MAVEN_FILE_NAME);
 
             // Get current war module by use module build in maven's target folder
             File warModuleFile = FileHandler.findFileModuleInPath(CURRENT_MODULE_PATH, CURRENT_MODULE_NAME_REGEX);

@@ -13,6 +13,11 @@ import org.testng.annotations.DataProvider;
  */
 public class StatisticDataProvider
 {
+    private StatisticDataProvider()
+    {
+    }
+
+
     /**
      * Correct statistic object provider.
      *

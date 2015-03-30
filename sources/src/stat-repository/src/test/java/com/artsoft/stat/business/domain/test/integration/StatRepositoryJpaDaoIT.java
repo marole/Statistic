@@ -133,41 +133,48 @@ public class StatRepositoryJpaDaoIT extends Arquillian
          */
         // @formatter:on
 
-        PomEquippedResolveStage pomResolver = Maven.resolver().offline().loadPomFromFile(POM_MAVEN_FILE_NAME);
+        try {
+            PomEquippedResolveStage pomResolver = Maven.resolver().loadPomFromFile(POM_MAVEN_FILE_NAME);
 
-        List<File> libsList = new ArrayList<>();
+            List<File> libsList = new ArrayList<>();
 
 
-        // Get current jar module by use module build in maven's target folder.
-        File jarUnderTest = FileHandler.findFileModuleInPath(CURRENT_MODULE_PATH, CURRENT_MODULE_NAME_REGEX);
+            // Get current jar module by use module build in maven's target folder.
+            File jarUnderTest = FileHandler.findFileModuleInPath(CURRENT_MODULE_PATH, CURRENT_MODULE_NAME_REGEX);
 
-        // get lib dependencies from POM required by module under the test
-        File[] libs = pomResolver.importRuntimeDependencies().resolve().withTransitivity().asFile();
-        Collections.addAll(libsList, libs);
-
-        // get lib dependencies from POM required by Arquillian test class
-        for (String lib : LIBS_REQUIRED_BY_ARQUILLIAN_TESTS) {
-            libs = pomResolver.resolve(lib).withTransitivity().asFile();
+            // get lib dependencies from POM required by module under the test
+            File[] libs = pomResolver.importRuntimeDependencies().resolve().withTransitivity().asFile();
             Collections.addAll(libsList, libs);
+
+            // get lib dependencies from POM required by Arquillian test class
+            for (String lib : LIBS_REQUIRED_BY_ARQUILLIAN_TESTS) {
+                libs = pomResolver.resolve(lib).withTransitivity().asFile();
+                Collections.addAll(libsList, libs);
+            }
+
+            /*
+             * Test classes and test resources need to be added manually when create a
+             * EnterpriseArchive. The Servlet Protocol does not currently default any of the modules
+             * and
+             * don't know where to add it.
+             */
+            JavaArchive jarWithTest = ShrinkWrap.create(ExplodedImporter.class, ARQUILLIAN_COMPONENT_WITH_TESTS_NAME)
+                .importDirectory(new File(TEST_CLASSES_PATH))
+                .as(JavaArchive.class);
+
+
+            EnterpriseArchive ear = ShrinkWrap.create(EnterpriseArchive.class, EAR_COMPONENT_FOR_ITEST_NAME)
+                .addAsLibraries(jarUnderTest)
+                .addAsLibraries(libsList.toArray(new File[libsList.size()]))
+                .addAsLibraries(jarWithTest)
+                .addAsManifestResource(createApplicationXml(), EAR_APPLICATION_FILE_NAME);
+
+            return ear;
         }
-
-        /*
-         * Test classes and test resources need to be added manually when create a
-         * EnterpriseArchive. The Servlet Protocol does not currently default any of the modules and
-         * don't know where to add it.
-         */
-        JavaArchive jarWithTest = ShrinkWrap.create(ExplodedImporter.class, ARQUILLIAN_COMPONENT_WITH_TESTS_NAME)
-            .importDirectory(new File(TEST_CLASSES_PATH))
-            .as(JavaArchive.class);
-
-
-        EnterpriseArchive ear = ShrinkWrap.create(EnterpriseArchive.class, EAR_COMPONENT_FOR_ITEST_NAME)
-            .addAsLibraries(jarUnderTest)
-            .addAsLibraries(libsList.toArray(new File[libsList.size()]))
-            .addAsLibraries(jarWithTest)
-            .addAsManifestResource(createApplicationXml(), EAR_APPLICATION_FILE_NAME);
-
-        return ear;
+        catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException("Error during deployment test unit.", e);
+        }
     }
 
 

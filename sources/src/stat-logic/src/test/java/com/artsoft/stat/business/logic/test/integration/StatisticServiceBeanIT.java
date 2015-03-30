@@ -71,7 +71,7 @@ public class StatisticServiceBeanIT extends Arquillian
     {
         try {
             List<File> libsList = new ArrayList<>();
-            PomEquippedResolveStage pomResolver = Maven.resolver().offline().loadPomFromFile(POM_MAVEN_FILE_NAME);
+            PomEquippedResolveStage pomResolver = Maven.resolver().loadPomFromFile(POM_MAVEN_FILE_NAME);
 
 
             // Get current ejb module by use module build in maven's target folder.

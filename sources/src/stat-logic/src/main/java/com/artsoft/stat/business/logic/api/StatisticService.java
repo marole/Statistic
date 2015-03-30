@@ -13,7 +13,6 @@ import com.artsoft.stat.business.domain.model.StatisticEntity;
  */
 public interface StatisticService
 {
-
     /**
      * New statistic provided.
      *

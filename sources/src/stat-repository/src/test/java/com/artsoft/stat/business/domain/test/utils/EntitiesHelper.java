@@ -47,6 +47,7 @@ public class EntitiesHelper
             }
         };
 
+
     private static final Map<Integer, StatisticEntity> STATISTIC_ENTITY_REF =
         new HashMap<Integer, StatisticEntity>() {
             private static final long serialVersionUID = 1L;
@@ -56,6 +57,11 @@ public class EntitiesHelper
         };
 
     private static DbTesterHelper dbHelper;
+
+
+    private EntitiesHelper()
+    {
+    }
 
 
     /**

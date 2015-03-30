@@ -60,10 +60,8 @@ public class StatisticEntity implements Serializable
      */
     public StatisticEntity(final StatisticEntity statistic)
     {
-        if ((statistic != null) && (this != statistic)) {
-            name = statistic.getName();
-            value = statistic.getValue();
-            resolution = statistic.getResolution();
+        if (statistic != null) {
+            init(statistic.getName(), statistic.getValue(), statistic.getResolution());
         }
     }
 
@@ -77,9 +75,7 @@ public class StatisticEntity implements Serializable
      */
     public StatisticEntity(final String name, final String value, final ResolutionEntity resolution)
     {
-        this.name = name;
-        this.value = value;
-        this.resolution = resolution;
+        init(name, value, resolution);
     }
 
 
@@ -153,10 +149,7 @@ public class StatisticEntity implements Serializable
     @Override
     public int hashCode()
     {
-        final int initialOddNumber = 17;
-        final int multiplierOddNumber = 31;
-
-        return new HashCodeBuilder(initialOddNumber, multiplierOddNumber).
+        return new HashCodeBuilder(Constants.INIT_ODD_NUMBER, Constants.MULTI_ODD_NUMBER).
             append(getName()).
             append(getResolution()).
             append(getValue()).
@@ -201,5 +194,13 @@ public class StatisticEntity implements Serializable
     public String toString()
     {
         return "StatisticEntity[id=" + id + ", name=" + name + ", value=" + value + ", resolution=" + resolution + "]";
+    }
+
+
+    private void init(final String aName, final String aValue, final ResolutionEntity aResolution)
+    {
+        name = aName;
+        value = aValue;
+        resolution = aResolution;
     }
 }
