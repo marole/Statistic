@@ -33,8 +33,8 @@
         <commons-lang.version>2.6</commons-lang.version>
         <commons-configuration.version>1.10</commons-configuration.version>
         <commons-lang3.version>3.3.2</commons-lang3.version>
-        <testng.version>6.8.17</testng.version>
-        <mockito-core.version>1.9.5</mockito-core.version>
+        <testng.version>6.8.21</testng.version>
+        <mockito-core.version>2.0.5-beta</mockito-core.version>
         <arquillian-bom.version>1.1.3.Final</arquillian-bom.version>
         <arquillian-persistence-dbunit.version>1.0.0.Alpha7</arquillian-persistence-dbunit.version>
         <jboss-as-arquillian-container-managed.version>7.1.1.Final</jboss-as-arquillian-container-managed.version>
@@ -43,8 +43,8 @@
         <utils.version>1.0.0</utils.version>
         <soapui.pro.version>5.1.1</soapui.pro.version>
         <reflections.version>0.9.9</reflections.version>
-        <mysql-connector.version>5.1.34</mysql-connector.version>
-        <findbugs.version>3.0.0</findbugs.version>
+        <mysql-connector.version>5.1.35</mysql-connector.version>
+        <findbugs.version>3.0.1</findbugs.version>
 
         <!-- Java SE i EE options -->
         <java-compiler.source.version>1.7</java-compiler.source.version>
@@ -56,13 +56,14 @@
 
         <!-- SonarQube plugin -->
         <sonar-maven-plugin.version>2.5</sonar-maven-plugin.version>
-        <sonar.jdbc.url>jdbc:mysql://localhost:3306/sonar?useUnicode=true&amp;characterEncoding=utf8</sonar.jdbc.url>
+        <sonar.jdbc.url>jdbc:mysql://vps138213.ovh.net:3306/sonar?useUnicode=true&amp;characterEncoding=utf8&amp;rewriteBatchedStatements=true&amp;useConfigs=maxPerformance&amp;autoReconnect=true</sonar.jdbc.url>
         <sonar.jdbc.username>sonar</sonar.jdbc.username>
-        <sonar.jdbc.password>sonar123</sonar.jdbc.password>
-        <sonar-jacoco-listeners.version>2.8</sonar-jacoco-listeners.version>
+        <sonar.jdbc.password>Qweasd123</sonar.jdbc.password>
+        <sonar.host.url>http://vps138213.ovh.net:9000</sonar.host.url>
+        <sonar-jacoco-listeners.version>3.0</sonar-jacoco-listeners.version>
 
         <!-- Maven plugin's versions -->
-        <maven-compiler-plugin.version>3.2</maven-compiler-plugin.version>
+        <maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
         <maven-war-plugin.version>2.6</maven-war-plugin.version>
         <maven-ejb-plugin.version>2.5</maven-ejb-plugin.version>
         <maven-ear-plugin.version>2.10</maven-ear-plugin.version>
@@ -70,7 +71,7 @@
         <maven-install-plugin.version>2.5.2</maven-install-plugin.version>
         <maven-failsafe-plugin.version>2.17</maven-failsafe-plugin.version>
         <maven-surefire-plugin.version>2.18.1</maven-surefire-plugin.version>
-        <maven-javadoc-plugin.version>2.10.1</maven-javadoc-plugin.version>
+        <maven-javadoc-plugin.version>2.10.2</maven-javadoc-plugin.version>
         <maven-project-info-reports-plugin.version>2.8</maven-project-info-reports-plugin.version>
         <maven-jxr-plugin.version>2.5</maven-jxr-plugin.version>
         <maven-release-plugin.version>2.5.1</maven-release-plugin.version>
@@ -78,8 +79,8 @@
         <jaxb2-maven-plugin.version>1.5</jaxb2-maven-plugin.version>
         <jaxb2-basics.version>0.6.5</jaxb2-basics.version>
         <cxf-xjc-plugin.version>3.0.3</cxf-xjc-plugin.version>
-        <cxf-wadl2java-plugin.version>3.0.3</cxf-wadl2java-plugin.version>
-        <jacoco-maven-plugin.version>0.7.2.201409121644</jacoco-maven-plugin.version>
+        <cxf-wadl2java-plugin.version>3.0.4</cxf-wadl2java-plugin.version>
+        <jacoco-maven-plugin.version>0.7.4.201502262128</jacoco-maven-plugin.version>
     </properties>
 
     <modules>
