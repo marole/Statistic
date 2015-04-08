@@ -26,6 +26,12 @@
         <jaxb2-input-binding-filePath>${restfull-resources-dir}/${restfull-resources-context-dir}/jaxb/stats.xjb</jaxb2-input-binding-filePath>
         <xml-schema-localPath>${restfull-resources-context-dir}/schemas/stats.xsd</xml-schema-localPath>
 
+        <!-- Module versions -->
+        <stat-repository.version>1.0.1-SNAPSHOT</stat-repository.version>
+        <stat-logic.version>1.0.1-SNAPSHOT</stat-logic.version>
+        <stat-rest.version>1.0.1-SNAPSHOT</stat-rest.version>
+        <stat-web.version>1.0.1-SNAPSHOT</stat-web.version>
+
         <!-- Dependency library versions -->
         <commons-io.version>2.4</commons-io.version>
         <commons-logging.version>1.2</commons-logging.version>
@@ -97,24 +103,24 @@
             <dependency>
                 <groupId>com.artsoft</groupId>
                 <artifactId>stat-repository</artifactId>
-                <version>1.0.1-SNAPSHOT</version>
+                <version>${stat-repository.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.artsoft</groupId>
                 <artifactId>stat-logic</artifactId>
-                <version>1.0.1-SNAPSHOT</version>
+                <version>${stat-logic.version}</version>
                 <type>ejb</type>
             </dependency>
             <dependency>
                 <groupId>com.artsoft</groupId>
                 <artifactId>stat-rest</artifactId>
-                <version>1.0.1-SNAPSHOT</version>
+                <version>${stat-rest.version}</version>
                 <type>war</type>
             </dependency>
             <dependency>
                 <groupId>com.artsoft</groupId>
                 <artifactId>stat-web</artifactId>
-                <version>1.0.1-SNAPSHOT</version>
+                <version>${stat-web.version}</version>
                 <type>war</type>
             </dependency>
 
