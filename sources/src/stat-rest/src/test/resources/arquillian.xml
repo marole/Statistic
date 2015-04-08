@@ -8,7 +8,8 @@
 
     <container qualifier="jboss7" default="true">
         <configuration>
-            <property name="jbossHome">${artsoft.stat.it.jboss.home}</property>
+            <property name="jbossHome">${artsoft.stat.it.java.server.home}</property>
+            <property name="javaHome">${artsoft.stat.it.java.home}</property>
         </configuration>
     </container>
 </arquillian>

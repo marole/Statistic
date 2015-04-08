@@ -29,12 +29,12 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 @Entity
 @Table(name = "resolution",
     uniqueConstraints = @UniqueConstraint(name = "uniqueResolution",
-        columnNames = { "height", "width" }))
+        columnNames = {"height", "width"}))
 @NamedQueries({
     @NamedQuery(name = "Resolution.findByWidthAndHeight",
         query = "SELECT res FROM ResolutionEntity AS res WHERE "
             + "res.width = :" + Constants.Query.WIDTH_PARAM + " AND "
-            + "res.height = :" + Constants.Query.HEIGHT_PARAM) })
+            + "res.height = :" + Constants.Query.HEIGHT_PARAM)})
 public class ResolutionEntity implements Serializable
 {
     private static final long serialVersionUID = 1L;
@@ -68,8 +68,7 @@ public class ResolutionEntity implements Serializable
      */
     public ResolutionEntity(final int width, final int height)
     {
-        this.width = width;
-        this.height = height;
+        init(width, height);
     }
 
 
@@ -80,9 +79,8 @@ public class ResolutionEntity implements Serializable
      */
     public ResolutionEntity(final ResolutionEntity resolution)
     {
-        if ((resolution != null) && (this != resolution)) {
-            height = resolution.getHeight();
-            width = resolution.getWidth();
+        if (resolution != null) {
+            init(resolution.getWidth(), resolution.getHeight());
         }
     }
 
@@ -145,10 +143,7 @@ public class ResolutionEntity implements Serializable
     @Override
     public int hashCode()
     {
-        final int initialOddNumber = 17;
-        final int multiplierOddNumber = 31;
-
-        return new HashCodeBuilder(initialOddNumber, multiplierOddNumber).
+        return new HashCodeBuilder(Constants.INIT_ODD_NUMBER, Constants.MULTI_ODD_NUMBER).
             append(getHeight()).
             append(getWidth()).
             toHashCode();
@@ -181,5 +176,12 @@ public class ResolutionEntity implements Serializable
     public String toString()
     {
         return "ResolutionEntity[id=" + id + ", width=" + width + ", height=" + height + "]";
+    }
+
+
+    private void init(final int aWidth, final int aHeight)
+    {
+        width = aWidth;
+        height = aHeight;
     }
 }

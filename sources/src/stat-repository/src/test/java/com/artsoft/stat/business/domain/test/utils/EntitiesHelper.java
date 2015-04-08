@@ -1,3 +1,6 @@
+/*
+ * ArtSoft 2015.
+ */
 
 package com.artsoft.stat.business.domain.test.utils;
 
@@ -34,6 +37,7 @@ public class EntitiesHelper
         public static final String STATISTIC_TABLE_NAME = "statistic";
     }
 
+
     private static final Map<Integer, ResolutionEntity> RESOLUTION_ENTITY_REF =
         new HashMap<Integer, ResolutionEntity>() {
             private static final long serialVersionUID = 1L;
@@ -43,6 +47,7 @@ public class EntitiesHelper
             }
         };
 
+
     private static final Map<Integer, StatisticEntity> STATISTIC_ENTITY_REF =
         new HashMap<Integer, StatisticEntity>() {
             private static final long serialVersionUID = 1L;
@@ -51,8 +56,12 @@ public class EntitiesHelper
             }
         };
 
-
     private static DbTesterHelper dbHelper;
+
+
+    private EntitiesHelper()
+    {
+    }
 
 
     /**

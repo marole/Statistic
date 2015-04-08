@@ -11,7 +11,8 @@
             <property name="executionType">REMOTE</property>
         </protocol>
         <configuration>
-            <property name="jbossHome">${artsoft.stat.it.jboss.home}</property>
+            <property name="jbossHome">${artsoft.stat.it.java.server.home}</property>
+            <property name="javaHome">${artsoft.stat.it.java.home}</property>
             <!-- <property name="javaVmArguments">-agentlib:jdwp=transport=dt_socket,address=8787,server=y,suspend=y,timeout=10000</property> -->
         </configuration>
     </container>

@@ -37,9 +37,9 @@ public class StatisticContextResolver implements ContextResolver<JAXBContext>
      *
      * @author Marcin Olejarczyk
      */
-    private static class ValidatingJAXBContext extends JAXBContext
+    private static class ValidatingJaxbContext extends JAXBContext
     {
-        private static final Log logger = LogFactory.getLog(ValidatingJAXBContext.class);
+        private static final Log logger = LogFactory.getLog(ValidatingJaxbContext.class);
 
         private final JAXBContext contextDelegate;
         private final Schema schema;
@@ -54,7 +54,7 @@ public class StatisticContextResolver implements ContextResolver<JAXBContext>
          * @throws JAXBException the JAXB exception
          * @throws SAXException the SAX exception
          */
-        protected ValidatingJAXBContext(final String schemaFile, final Class<?> classToBeBound) throws JAXBException,
+        protected ValidatingJaxbContext(final String schemaFile, final Class<?> classToBeBound) throws JAXBException,
             SAXException
         {
             contextDelegate = JAXBContext.newInstance(classToBeBound);
@@ -73,7 +73,7 @@ public class StatisticContextResolver implements ContextResolver<JAXBContext>
          * @throws JAXBException the JAXB exception
          * @throws SAXException the SAX exception
          */
-        public static ValidatingJAXBContext newInstance(final String schemaFile, final Class<?> classToBeBound)
+        public static ValidatingJaxbContext newInstance(final String schemaFile, final Class<?> classToBeBound)
             throws JAXBException, SAXException
         {
             if (logger.isDebugEnabled()) {
@@ -81,7 +81,7 @@ public class StatisticContextResolver implements ContextResolver<JAXBContext>
                     + "' with schema '" + schemaFile + "'.");
             }
 
-            return new ValidatingJAXBContext(schemaFile, classToBeBound);
+            return new ValidatingJaxbContext(schemaFile, classToBeBound);
         }
 
 
@@ -197,7 +197,7 @@ public class StatisticContextResolver implements ContextResolver<JAXBContext>
 
         JAXBContext jaxbContext = null;
         try {
-            jaxbContext = ValidatingJAXBContext.newInstance(registeredSchemaFileMap.get(clas), clas);
+            jaxbContext = ValidatingJaxbContext.newInstance(registeredSchemaFileMap.get(clas), clas);
         }
         catch (JAXBException | SAXException e) {
             if (logger.isWarnEnabled()) {

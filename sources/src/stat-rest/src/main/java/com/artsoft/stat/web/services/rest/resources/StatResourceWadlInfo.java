@@ -76,11 +76,6 @@ public class StatResourceWadlInfo implements StatResourceWadl
             return false;
         }
 
-        if (Constants.FILES_WITH_NO_CLIENT_ACCESS.contains(filePath)) {
-            logger.info("No access to file path.");
-            return false;
-        }
-
         return true;
     }
 }

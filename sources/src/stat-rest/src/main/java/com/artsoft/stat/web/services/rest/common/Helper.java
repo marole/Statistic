@@ -11,7 +11,7 @@ import org.apache.commons.io.IOUtils;
 /**
  * The Helper class.
  */
-public abstract class Helper
+public class Helper
 {
     private Helper()
     {

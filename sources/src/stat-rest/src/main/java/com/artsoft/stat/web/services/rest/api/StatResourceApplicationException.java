@@ -54,8 +54,7 @@ public class StatResourceApplicationException extends StatResourceException
      * @param writableStackTrace the writable stack trace
      */
     public StatResourceApplicationException(final String message, final Throwable cause,
-        final boolean enableSuppression,
-        final boolean writableStackTrace)
+        final boolean enableSuppression, final boolean writableStackTrace)
     {
         super(message, cause, enableSuppression, writableStackTrace);
     }

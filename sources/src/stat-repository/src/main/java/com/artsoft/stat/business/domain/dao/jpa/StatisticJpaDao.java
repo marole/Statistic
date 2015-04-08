@@ -12,6 +12,6 @@ import com.artsoft.stat.business.domain.model.StatisticEntity;
 /**
  * The JPA DAO for need of Statistic object.
  */
-public class StatisticJpaDao extends JpaDao<StatisticEntity, Integer> implements StatisticDao
+public class StatisticJpaDao extends AbstractJpaDao<StatisticEntity, Integer> implements StatisticDao
 {
 }

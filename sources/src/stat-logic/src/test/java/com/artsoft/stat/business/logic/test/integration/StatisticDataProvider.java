@@ -1,3 +1,6 @@
+/*
+ * ArtSoft 2015.
+ */
 
 package com.artsoft.stat.business.logic.test.integration;
 
@@ -10,6 +13,11 @@ import org.testng.annotations.DataProvider;
  */
 public class StatisticDataProvider
 {
+    private StatisticDataProvider()
+    {
+    }
+
+
     /**
      * Correct statistic object provider.
      *
@@ -20,8 +28,8 @@ public class StatisticDataProvider
     {
         return new Object[][] {
             // statistic.name, statistic.value, resolution.width, resolution.height, dbFileName
-            { "name0", "value0", 100, 200, Config.STATISTIC_DATASET_1 },
-            { "name1", "value1", 200, 400, Config.STATISTIC_DATASET_2 }
+            {"name0", "value0", 100, 200, Config.STATISTIC_DATASET_1},
+            {"name1", "value1", 200, 400, Config.STATISTIC_DATASET_2}
         };
     }
 
@@ -35,8 +43,8 @@ public class StatisticDataProvider
     public static Object[][] incorrectStatisticDataProvider()
     {
         return new Object[][] {
-            { "name1", null, 100, 100 },
-            { "name2", "value2", -1, 200 }
+            {"name1", null, 100, 100},
+            {"name2", "value2", -1, 200}
         };
     }
 }

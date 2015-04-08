@@ -1,3 +1,6 @@
+/*
+ * ArtSoft 2015.
+ */
 
 package com.artsoft.stat.business.logic.test.unit;
 
@@ -22,6 +25,8 @@ import com.artsoft.stat.business.logic.api.InputDataViolationException;
 import com.artsoft.stat.business.logic.endpoints.StatisticServiceBean;
 import com.artsoft.stat.business.logic.test.integration.StatisticDataProvider;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+
 
 /**
  * The StatisticServiceBean unit test class.
@@ -29,6 +34,7 @@ import com.artsoft.stat.business.logic.test.integration.StatisticDataProvider;
 public class StatisticServiceBeanTest
 {
     @Spy
+    @SuppressFBWarnings("URF_UNREAD_FIELD")
     private final Validator validatorSpy = Validation.buildDefaultValidatorFactory().getValidator();
 
     @Mock

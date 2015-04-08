@@ -4,7 +4,7 @@
 
     <groupId>com.artsoft</groupId>
     <artifactId>stat-root</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <packaging>pom</packaging>
 
     <name>ArtSoft Statistic Root</name>
@@ -26,59 +26,67 @@
         <jaxb2-input-binding-filePath>${restfull-resources-dir}/${restfull-resources-context-dir}/jaxb/stats.xjb</jaxb2-input-binding-filePath>
         <xml-schema-localPath>${restfull-resources-context-dir}/schemas/stats.xsd</xml-schema-localPath>
 
+        <!-- Module versions -->
+        <stat-repository.version>1.0.1-SNAPSHOT</stat-repository.version>
+        <stat-logic.version>1.0.1-SNAPSHOT</stat-logic.version>
+        <stat-rest.version>1.0.1-SNAPSHOT</stat-rest.version>
+        <stat-web.version>1.0.1-SNAPSHOT</stat-web.version>
+
         <!-- Dependency library versions -->
         <commons-io.version>2.4</commons-io.version>
-        <commons-logging.version>1.1.3</commons-logging.version>
-        <commons-beanutils.version>1.9.1</commons-beanutils.version>
+        <commons-logging.version>1.2</commons-logging.version>
+        <commons-beanutils.version>1.9.2</commons-beanutils.version>
         <commons-lang.version>2.6</commons-lang.version>
         <commons-configuration.version>1.10</commons-configuration.version>
-        <commons-lang3.version>3.3</commons-lang3.version>
-        <testng.version>6.8.7</testng.version>
-        <mockito-core.version>1.9.5</mockito-core.version>
+        <commons-lang3.version>3.4</commons-lang3.version>
+        <testng.version>6.8.21</testng.version>
+        <mockito-core.version>2.0.5-beta</mockito-core.version>
         <arquillian-bom.version>1.1.3.Final</arquillian-bom.version>
         <arquillian-persistence-dbunit.version>1.0.0.Alpha7</arquillian-persistence-dbunit.version>
-        <jboss-as-arquillian-container-managed.version>7.1.1.Final</jboss-as-arquillian-container-managed.version>
+        <wildfly-arquillian-container-managed.version>1.0.0.Alpha5</wildfly-arquillian-container-managed.version>
         <dbunit.version>2.5.0</dbunit.version>
         <guice.version>2.0</guice.version>
         <utils.version>1.0.0</utils.version>
         <soapui.pro.version>5.1.1</soapui.pro.version>
-        <reflections.version>0.9.9-RC1</reflections.version>
-        <mysql-connector.version>5.1.32</mysql-connector.version>
+        <reflections.version>0.9.9</reflections.version>
+        <mysql-connector.version>5.1.35</mysql-connector.version>
+        <findbugs.version>3.0.1</findbugs.version>
 
         <!-- Java SE i EE options -->
-        <java-compiler.source.version>1.7</java-compiler.source.version>
-        <java-compiler.target.version>1.7</java-compiler.target.version>
-        <javaee.version>6.0</javaee.version>
+        <java-compiler.source.version>1.8</java-compiler.source.version>
+        <java-compiler.target.version>1.8</java-compiler.target.version>
+        <javaee.version>7.0</javaee.version>
         <javaee-ear.version>6</javaee-ear.version>
         <javaee-ejb.version>3.1</javaee-ejb.version>
-        <glassfish-embedded-all.version>4.0</glassfish-embedded-all.version>
+        <glassfish-embedded-all.version>4.1</glassfish-embedded-all.version>
 
         <!-- SonarQube plugin -->
-        <sonar-maven-plugin.version>2.4</sonar-maven-plugin.version>
-        <sonar.jdbc.url>jdbc:mysql://localhost:3306/sonar?useUnicode=true&amp;characterEncoding=utf8</sonar.jdbc.url>
+        <sonar-maven-plugin.version>2.5</sonar-maven-plugin.version>
+        <sonar.jdbc.url>jdbc:mysql://vps138213.ovh.net:3306/sonar?useUnicode=true&amp;characterEncoding=utf8&amp;rewriteBatchedStatements=true&amp;useConfigs=maxPerformance&amp;autoReconnect=true</sonar.jdbc.url>
         <sonar.jdbc.username>sonar</sonar.jdbc.username>
-        <sonar.jdbc.password>sonar123</sonar.jdbc.password>
-        <sonar-jacoco-listeners.version>2.5.1</sonar-jacoco-listeners.version>
+        <sonar.jdbc.password>Qweasd123</sonar.jdbc.password>
+        <sonar.host.url>http://vps138213.ovh.net:9000</sonar.host.url>
+        <sonar-jacoco-listeners.version>3.1</sonar-jacoco-listeners.version>
 
         <!-- Maven plugin's versions -->
-        <maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
-        <maven-war-plugin.version>2.4</maven-war-plugin.version>
-        <maven-ejb-plugin.version>2.3</maven-ejb-plugin.version>
-        <maven-ear-plugin.version>2.9</maven-ear-plugin.version>
-        <maven-deploy-plugin.version>2.8.1</maven-deploy-plugin.version>
-        <maven-install-plugin.version>2.5.1</maven-install-plugin.version>
+        <maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
+        <maven-war-plugin.version>2.6</maven-war-plugin.version>
+        <maven-ejb-plugin.version>2.5</maven-ejb-plugin.version>
+        <maven-ear-plugin.version>2.10</maven-ear-plugin.version>
+        <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
+        <maven-install-plugin.version>2.5.2</maven-install-plugin.version>
         <maven-failsafe-plugin.version>2.17</maven-failsafe-plugin.version>
-        <maven-surefire-plugin.version>2.17</maven-surefire-plugin.version>
-        <maven-javadoc-plugin.version>2.10.1</maven-javadoc-plugin.version>
-        <maven-project-info-reports-plugin.version>2.7</maven-project-info-reports-plugin.version>
+        <maven-surefire-plugin.version>2.18.1</maven-surefire-plugin.version>
+        <maven-javadoc-plugin.version>2.10.2</maven-javadoc-plugin.version>
+        <maven-project-info-reports-plugin.version>2.8</maven-project-info-reports-plugin.version>
         <maven-jxr-plugin.version>2.5</maven-jxr-plugin.version>
         <maven-release-plugin.version>2.5.1</maven-release-plugin.version>
 
         <jaxb2-maven-plugin.version>1.5</jaxb2-maven-plugin.version>
         <jaxb2-basics.version>0.6.5</jaxb2-basics.version>
-        <cxf-xjc-plugin.version>2.7.0</cxf-xjc-plugin.version>
-        <cxf-wadl2java-plugin.version>3.0.2</cxf-wadl2java-plugin.version>
-        <jacoco-maven-plugin.version>0.7.2.201409121644</jacoco-maven-plugin.version>
+        <cxf-xjc-plugin.version>3.0.3</cxf-xjc-plugin.version>
+        <cxf-wadl2java-plugin.version>3.0.4</cxf-wadl2java-plugin.version>
+        <jacoco-maven-plugin.version>0.7.4.201502262128</jacoco-maven-plugin.version>
     </properties>
 
     <modules>
@@ -95,24 +103,24 @@
             <dependency>
                 <groupId>com.artsoft</groupId>
                 <artifactId>stat-repository</artifactId>
-                <version>${project.version}</version>
+                <version>${stat-repository.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.artsoft</groupId>
                 <artifactId>stat-logic</artifactId>
-                <version>${project.version}</version>
+                <version>${stat-logic.version}</version>
                 <type>ejb</type>
             </dependency>
             <dependency>
                 <groupId>com.artsoft</groupId>
                 <artifactId>stat-rest</artifactId>
-                <version>${project.version}</version>
+                <version>${stat-rest.version}</version>
                 <type>war</type>
             </dependency>
             <dependency>
                 <groupId>com.artsoft</groupId>
                 <artifactId>stat-web</artifactId>
-                <version>${project.version}</version>
+                <version>${stat-web.version}</version>
                 <type>war</type>
             </dependency>
 
@@ -164,7 +172,11 @@
                 <artifactId>cxf-wadl2java-plugin</artifactId>
                 <version>${cxf-wadl2java-plugin.version}</version>
             </dependency>
-
+            <dependency>
+                <groupId>com.google.code.findbugs</groupId>
+                <artifactId>findbugs</artifactId>
+                <version>${findbugs.version}</version>
+            </dependency>
 
             <!-- Dependencies used for testing -->
             <dependency>
@@ -192,9 +204,9 @@
                 <type>pom</type>
             </dependency>
             <dependency>
-                <groupId>org.jboss.as</groupId>
-                <artifactId>jboss-as-arquillian-container-managed</artifactId>
-                <version>${jboss-as-arquillian-container-managed.version}</version>
+                <groupId>org.wildfly.arquillian</groupId>
+                <artifactId>wildfly-arquillian-container-managed</artifactId>
+                <version>${wildfly-arquillian-container-managed.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.dbunit</groupId>
@@ -362,7 +374,7 @@
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>${maven-surefire-plugin.version}</version>
                     <configuration>
-                        It is required by jacoco-maven-plugin to run it.
+                        <!-- It is required by jacoco-maven-plugin to run it. -->
                         <argLine>${jacoco.agent.argLine}</argLine>
                         <properties>
                             <property>
@@ -398,7 +410,6 @@
                     <artifactId>jacoco-maven-plugin</artifactId>
                     <version>${jacoco-maven-plugin.version}</version>
                     <configuration>
-                        default: argLine
                         <propertyName>jacoco.agent.argLine</propertyName>
                     </configuration>
                     <executions>

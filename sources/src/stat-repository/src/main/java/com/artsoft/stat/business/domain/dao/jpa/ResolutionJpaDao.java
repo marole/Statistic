@@ -21,7 +21,7 @@ import com.artsoft.stat.business.domain.model.ResolutionEntity;
  *
  * @author Marcin Olejarczyk
  */
-public class ResolutionJpaDao extends JpaDao<ResolutionEntity, Integer> implements ResolutionDao
+public class ResolutionJpaDao extends AbstractJpaDao<ResolutionEntity, Integer> implements ResolutionDao
 {
     private static final Log logger = LogFactory.getLog(ResolutionJpaDao.class);
     private static final String FIND_BY_WIDTH_HEIGHT_QUERY = "Resolution.findByWidthAndHeight";

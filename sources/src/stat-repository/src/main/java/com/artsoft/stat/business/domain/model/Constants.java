@@ -1,5 +1,5 @@
 /*
- * ArtSoft 2014.
+ * ArtSoft 2015.
  */
 
 package com.artsoft.stat.business.domain.model;
@@ -8,12 +8,12 @@ package com.artsoft.stat.business.domain.model;
 /**
  * The Class Constants.
  */
-public abstract class Constants
+public class Constants
 {
     /**
      * The Class Query.
      */
-    public abstract static class Query
+    public static class Query
     {
         /** The width parameter for JPQL. */
         public static final String WIDTH_PARAM = "width";
@@ -30,7 +30,7 @@ public abstract class Constants
     /**
      * The Class Query.
      */
-    public abstract static class Schema
+    public static class Schema
     {
         private static final String GENERATOR_TABLE_NAME_SUFIX = "_id_seq";
 
@@ -45,6 +45,13 @@ public abstract class Constants
         {
         }
     }
+
+
+    /** The initial odd number for hash calculation. */
+    public static final int INIT_ODD_NUMBER = 17;
+
+    /** The multiplier odd number for hash calculation. */
+    public static final int MULTI_ODD_NUMBER = 31;
 
 
     private Constants()
