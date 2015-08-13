@@ -12,7 +12,7 @@ import org.apache.commons.configuration.XMLPropertiesConfiguration;
 /**
  * The configuration class for statistic repository module integration test.
  */
-public abstract class Config
+public class Config
 {
     private static final String IT_CONFIG_FILE_NAME = "it-config.xml";
     private static final String DB_JNDI_PROPERTY_NAME = "db_jndi";
@@ -41,5 +41,13 @@ public abstract class Config
         catch (ConfigurationException e) {
             throw new RuntimeException(e);
         }
+    }
+
+
+    /**
+     * Instantiates a new config.
+     */
+    protected Config()
+    {
     }
 }

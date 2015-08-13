@@ -1,5 +1,5 @@
 /*
- * ArtSoft 2014.
+ * ArtSoft 2015.
  */
 
 package com.artsoft.stat.web.services.rest.common;
@@ -22,6 +22,7 @@ public class Constants
 
     private static final String CONFIG_FILE_NAME = "config.xml";
 
+
     static {
         try {
             XMLPropertiesConfiguration config = new XMLPropertiesConfiguration(CONFIG_FILE_NAME);
@@ -36,7 +37,10 @@ public class Constants
     }
 
 
-    private Constants()
+    /**
+     * Instantiates a new constants.
+     */
+    protected Constants()
     {
     }
 }

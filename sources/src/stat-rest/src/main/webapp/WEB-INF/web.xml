@@ -23,12 +23,12 @@
             <transport-guarantee>CONFIDENTIAL</transport-guarantee>
         </user-data-constraint>
     </security-constraint>
-    
+
     <login-config>
         <auth-method>BASIC</auth-method>
         <realm-name>Security</realm-name>
     </login-config>
-    
+
     <security-role>
         <role-name>Manager</role-name>
     </security-role>

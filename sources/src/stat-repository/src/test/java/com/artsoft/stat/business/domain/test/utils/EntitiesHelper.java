@@ -35,31 +35,37 @@ public class EntitiesHelper
 
         /** The Statistic table name. */
         public static final String STATISTIC_TABLE_NAME = "statistic";
+
+
+        /**
+         * Instantiates a new schema.
+         */
+        protected Schema()
+        {
+        }
     }
 
 
     private static final Map<Integer, ResolutionEntity> RESOLUTION_ENTITY_REF =
-        new HashMap<Integer, ResolutionEntity>() {
-            private static final long serialVersionUID = 1L;
-            {
-                put(1, new ResolutionEntity(100, 200));
-                put(2, new ResolutionEntity(300, 400));
-            }
-        };
+        new HashMap<Integer, ResolutionEntity>();
 
-
-    private static final Map<Integer, StatisticEntity> STATISTIC_ENTITY_REF =
-        new HashMap<Integer, StatisticEntity>() {
-            private static final long serialVersionUID = 1L;
-            {
-                put(1, new StatisticEntity("name0", "value0", RESOLUTION_ENTITY_REF.get(1)));
-            }
-        };
+    private static final Map<Integer, StatisticEntity> STATISTIC_ENTITY_REF = new HashMap<Integer, StatisticEntity>();
 
     private static DbTesterHelper dbHelper;
 
 
-    private EntitiesHelper()
+    static {
+        RESOLUTION_ENTITY_REF.put(1, new ResolutionEntity(100, 200));
+        RESOLUTION_ENTITY_REF.put(2, new ResolutionEntity(300, 400));
+
+        STATISTIC_ENTITY_REF.put(1, new StatisticEntity("name0", "value0", RESOLUTION_ENTITY_REF.get(1)));
+    }
+
+
+    /**
+     * Instantiates a new entities helper.
+     */
+    protected EntitiesHelper()
     {
     }
 

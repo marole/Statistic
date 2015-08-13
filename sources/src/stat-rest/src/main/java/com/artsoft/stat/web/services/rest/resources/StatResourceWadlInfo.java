@@ -31,6 +31,18 @@ public class StatResourceWadlInfo implements StatResourceWadl
     private static final Log logger = LogFactory.getLog(StatResourceWadlInfo.class);
 
 
+    private static boolean validateFile(final String filePath)
+    {
+        // the path argument can not be empty
+        if (StringUtils.isEmpty(filePath)) {
+            logger.info("Incorrect value of received path paramater.");
+            return false;
+        }
+
+        return true;
+    }
+
+
     @Override
     public Response getExternal(final String path)
     {
@@ -65,17 +77,5 @@ public class StatResourceWadlInfo implements StatResourceWadl
             }
             throw new StatResourceUnexpectedException("Problem with reading file.", e);
         }
-    }
-
-
-    private boolean validateFile(final String filePath)
-    {
-        // the path argument can not be empty
-        if (StringUtils.isEmpty(filePath)) {
-            logger.info("Incorrect value of received path paramater.");
-            return false;
-        }
-
-        return true;
     }
 }
