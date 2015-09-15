@@ -91,11 +91,8 @@ public class StatisticEntity implements Serializable
 
         if (obj instanceof StatisticEntity) {
             StatisticEntity other = (StatisticEntity)obj;
-            return new EqualsBuilder().
-                append(getName(), other.getName()).
-                append(getResolution(), other.getResolution()).
-                append(getValue(), other.getValue()).
-                isEquals();
+            return new EqualsBuilder().append(getName(), other.getName())
+                .append(getResolution(), other.getResolution()).append(getValue(), other.getValue()).isEquals();
         }
 
         return super.equals(obj);
@@ -149,11 +146,8 @@ public class StatisticEntity implements Serializable
     @Override
     public int hashCode()
     {
-        return new HashCodeBuilder(Constants.INIT_ODD_NUMBER, Constants.MULTI_ODD_NUMBER).
-            append(getName()).
-            append(getResolution()).
-            append(getValue()).
-            toHashCode();
+        return new HashCodeBuilder(Constants.INIT_ODD_NUMBER, Constants.MULTI_ODD_NUMBER).append(getName())
+            .append(getResolution()).append(getValue()).toHashCode();
     }
 
 

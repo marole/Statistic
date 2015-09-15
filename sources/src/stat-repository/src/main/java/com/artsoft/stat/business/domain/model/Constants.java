@@ -22,7 +22,10 @@ public class Constants
         public static final String HEIGHT_PARAM = "height";
 
 
-        private Query()
+        /**
+         * Instantiates a new query.
+         */
+        protected Query()
         {
         }
     }
@@ -41,7 +44,10 @@ public class Constants
         public static final String STATISTIC_GENERATOR_TABLE_NAME = "Statistic" + GENERATOR_TABLE_NAME_SUFIX;
 
 
-        private Schema()
+        /**
+         * Instantiates a new schema.
+         */
+        protected Schema()
         {
         }
     }
@@ -54,7 +60,10 @@ public class Constants
     public static final int MULTI_ODD_NUMBER = 31;
 
 
-    private Constants()
+    /**
+     * Instantiates a new constants.
+     */
+    protected Constants()
     {
     }
 }

@@ -2,12 +2,12 @@
 <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:art="http://www.artsoft.com/stats" elementFormDefault="qualified" targetNamespace="http://www.artsoft.com/stats" version="0.1">
     <simpleType name="nonEmptyString">
         <restriction base="string">
-            <minLength value="1"/>
+            <minLength value="1" />
         </restriction>
     </simpleType>
     <simpleType name="positiveInt">
         <restriction base="int">
-            <minExclusive value="0"/>
+            <minExclusive value="0" />
         </restriction>
     </simpleType>
     <complexType name="resolutionType">
@@ -15,20 +15,20 @@
             <documentation>Graphics display resolution of used screen.</documentation>
         </annotation>
         <all>
-            <element name="width" type="art:positiveInt"/>
-            <element name="height" type="art:positiveInt"/>
+            <element name="width" type="art:positiveInt" />
+            <element name="height" type="art:positiveInt" />
         </all>
     </complexType>
-	
+
     <element name="statistic">
         <complexType>
             <annotation>
                 <documentation>Statistic data of ArtSoft application.</documentation>
             </annotation>
             <all>
-                <element name="name" type="art:nonEmptyString"/>
-                <element name="value" type="art:nonEmptyString"/>
-                <element name="resolution" type="art:resolutionType"/>
+                <element name="name" type="art:nonEmptyString" />
+                <element name="value" type="art:nonEmptyString" />
+                <element name="resolution" type="art:resolutionType" />
             </all>
         </complexType>
     </element>

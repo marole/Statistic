@@ -1,5 +1,5 @@
 /*
- * ArtSoft 2014.
+ * ArtSoft 2015.
  */
 
 package com.artsoft.stat.web.services.rest.common;
@@ -13,7 +13,10 @@ import org.apache.commons.io.IOUtils;
  */
 public class Helper
 {
-    private Helper()
+    /**
+     * Instantiates a new helper.
+     */
+    protected Helper()
     {
     }
 

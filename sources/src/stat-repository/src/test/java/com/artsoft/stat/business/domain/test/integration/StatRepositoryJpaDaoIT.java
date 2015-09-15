@@ -218,8 +218,7 @@ public class StatRepositoryJpaDaoIT extends Arquillian
     {
         final Properties<PersistenceUnit<PersistenceDescriptor>> properties = persistenceUnit.getOrCreateProperties();
 
-        for (Property<Properties<PersistenceUnit<PersistenceDescriptor>>> property : properties.getAllProperty())
-        {
+        for (Property<Properties<PersistenceUnit<PersistenceDescriptor>>> property : properties.getAllProperty()) {
             if (property.getName().equals(propertyName)) {
                 property.value(propertyValue);
                 return;

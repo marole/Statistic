@@ -35,8 +35,8 @@ public class ResolutionJpaDao extends AbstractJpaDao<ResolutionEntity, Integer> 
         }
 
         // create named query
-        TypedQuery<ResolutionEntity> query = em.createNamedQuery(FIND_BY_WIDTH_HEIGHT_QUERY,
-            ResolutionEntity.class);
+        TypedQuery<ResolutionEntity> query = em.createNamedQuery(FIND_BY_WIDTH_HEIGHT_QUERY, ResolutionEntity.class);
+
         try {
             // get resolution entity by use named query
             ResolutionEntity resolution = query.setParameter(Constants.Query.WIDTH_PARAM, width)
