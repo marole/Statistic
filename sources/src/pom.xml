@@ -27,10 +27,10 @@
         <xml-schema-localPath>${restfull-resources-context-dir}/schemas/stats.xsd</xml-schema-localPath>
 
         <!-- Module versions -->
-        <stat-repository.version>1.0.1</stat-repository.version>
-        <stat-logic.version>1.0.1</stat-logic.version>
-        <stat-rest.version>1.0.1</stat-rest.version>
-        <stat-web.version>1.0.1</stat-web.version>
+        <stat-repository.version>1.0.2-SNAPSHOT</stat-repository.version>
+        <stat-logic.version>1.0.2-SNAPSHOT</stat-logic.version>
+        <stat-rest.version>1.0.2-SNAPSHOT</stat-rest.version>
+        <stat-web.version>1.0.2-SNAPSHOT</stat-web.version>
 
         <!-- Dependency library versions -->
         <commons-io.version>2.4</commons-io.version>
