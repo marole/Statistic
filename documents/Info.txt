@@ -1,0 +1,34 @@
+Publish code
+============
+
+- Sprawdzenie kodu czy sie kompiluje, testy s¹ ok, itp.:
+    * Sprawdzenie kodu poprzez wykonanie pe³nych testów 'mvn clean install -Pitest'.
+    * Wyczyszczenie kodu 'mvn clean',
+    * Wygenerowanie raportu 'mvn site',
+    
+- Sprawdzenie kodu co do stylu:
+    * W³¹czenie 'Build Automatically'.
+    * Wykonanie 'Clean' code.
+    * Sprawdzenie kodu z wykorzystaniem FindBugs.
+    * Sprawdzenie kodu z wykorzystaniem SonarQube na ka¿dym projekcie osobno.
+
+- Zatwierdzenie:
+    * git add
+    * git commit
+    * git push
+    
+- SonarQube:
+    * Sprawdzenie kodu poprzez wykonanie pe³nych testów 'mvn clean install -Pitest'.
+    * Wyczyszczenie kodu 'mvn clean',
+    * Wygenerowanie raportu 'mvn site',
+    * Wykonanie pe³nej analizy SonarQube 'mvn sonar:sonar'
+
+
+Release
+=======
+
+
+
+Start new version
+=================
+* Ustawienie docelowej wersji projektu wraz z 'SNAPSHOT',
