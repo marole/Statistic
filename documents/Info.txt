@@ -1,10 +1,11 @@
 Publish code
 ============
 
-- Sprawdzenie kodu czy sie kompiluje, testy s¹ ok, itp.:
+- Sprawdzenie kodu czy siê kompiluje, czy testy s¹ ok, itp.:
+    * Wyczyszczenie kodu poprzez Source > Clean up...
+    * Wy³¹czenie 'Build Automatically'.
     * Sprawdzenie kodu poprzez wykonanie pe³nych testów 'mvn clean install -Pitest'.
-    * Wyczyszczenie kodu 'mvn clean',
-    * Wygenerowanie raportu 'mvn site',
+    * Wygenerowanie raportu 'mvn clean site',
     
 - Sprawdzenie kodu co do stylu:
     * W³¹czenie 'Build Automatically'.
@@ -18,8 +19,7 @@ Publish code
     * git push
     
 - SonarQube:
-    * Sprawdzenie kodu poprzez wykonanie pe³nych testów 'mvn clean install -Pitest'.
-    * Wyczyszczenie kodu 'mvn clean',
+    * Wykonanie pe³nych testów 'mvn clean install -Pitest'.
     * Wygenerowanie raportu 'mvn site',
     * Wykonanie pe³nej analizy SonarQube 'mvn sonar:sonar'
 

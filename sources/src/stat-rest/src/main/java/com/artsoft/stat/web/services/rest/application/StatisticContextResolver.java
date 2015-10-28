@@ -106,7 +106,7 @@ public class StatisticContextResolver implements ContextResolver<JAXBContext>
         }
 
 
-        @SuppressWarnings("deprecation")
+        @SuppressWarnings({"deprecation", "squid:CallToDeprecatedMethod"})
         @Override
         public javax.xml.bind.Validator createValidator() throws JAXBException
         {
