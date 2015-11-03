@@ -115,7 +115,7 @@ public class StatisticServiceBean implements StatisticServiceRemote, StatisticSe
                 buffer.append(violation);
             }
             buffer.append(IOUtils.LINE_SEPARATOR);
-            buffer.append("]");
+            buffer.append(']');
 
             String message = "Failed validating the Statistic object integrity." + " " + IOUtils.LINE_SEPARATOR
                 + buffer;

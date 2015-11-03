@@ -88,13 +88,11 @@ public class StatResourceServiceIT extends Arquillian
 
             StringAsset appDescr = createApplicationXml(warUnderTest.getName(), ejbModule.getName());
 
-            EnterpriseArchive ear = ShrinkWrap.create(EnterpriseArchive.class, EAR_COMPONENT_FOR_ITEST_NAME)
+            return ShrinkWrap.create(EnterpriseArchive.class, EAR_COMPONENT_FOR_ITEST_NAME)
                 .addAsModule(warUnderTest)
                 .addAsModule(ejbModule)
                 .addAsLibraries(libsList.toArray(new File[libsList.size()]))
                 .addAsManifestResource(appDescr, EAR_APPLICATION_FILE_NAME);
-
-            return ear;
         }
         catch (RuntimeException e) {
             e.printStackTrace();
@@ -105,15 +103,13 @@ public class StatResourceServiceIT extends Arquillian
 
     private static StringAsset createApplicationXml(final String warModuleName, final String ejbModuleName)
     {
-        StringAsset asset = new StringAsset(Descriptors.create(ApplicationDescriptor.class)
+        return new StringAsset(Descriptors.create(ApplicationDescriptor.class)
             .version(EAR_COMPONENT_FOR_ITEST_VERSION)
             .displayName(EAR_COMPONENT_FOR_ITEST_NAME)
             .ejbModule(ejbModuleName)
             .webModule(warModuleName, WAR_MODULE_CONTEXT_ROOT)
             .libraryDirectory("lib")
             .exportAsString());
-
-        return asset;
     }
 
 
@@ -130,7 +126,7 @@ public class StatResourceServiceIT extends Arquillian
         SoapUIProTestCaseRunner runner = new SoapUIProTestCaseRunner();
         runner.setProjectFile("src/test/resources/soapUI/soapui-project.xml");
         runner.setProjectPassword("12maol09");
-        runner.setHost(serverUrl.getHost() + ":" + SERVER_PORT);
+        runner.setHost(serverUrl.getHost() + ':' + SERVER_PORT);
         runner.setPrintReport(true);
         runner.setJUnitReport(true);
         runner.setOutputFolder("target/surefire-reports/soapUI");

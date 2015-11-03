@@ -163,13 +163,11 @@ public class StatRepositoryJpaDaoIT extends Arquillian
                 .as(JavaArchive.class);
 
 
-            EnterpriseArchive ear = ShrinkWrap.create(EnterpriseArchive.class, EAR_COMPONENT_FOR_ITEST_NAME)
+            return ShrinkWrap.create(EnterpriseArchive.class, EAR_COMPONENT_FOR_ITEST_NAME)
                 .addAsLibraries(jarUnderTest)
                 .addAsLibraries(libsList.toArray(new File[libsList.size()]))
                 .addAsLibraries(jarWithTest)
                 .addAsManifestResource(createApplicationXml(), EAR_APPLICATION_FILE_NAME);
-
-            return ear;
         }
         catch (Exception e) {
             e.printStackTrace();
@@ -180,12 +178,10 @@ public class StatRepositoryJpaDaoIT extends Arquillian
 
     private static StringAsset createApplicationXml()
     {
-        StringAsset asset = new StringAsset(Descriptors.create(ApplicationDescriptor.class)
+        return new StringAsset(Descriptors.create(ApplicationDescriptor.class)
             .version(EAR_COMPONENT_FOR_ITEST_VERSION)
             .displayName(EAR_COMPONENT_FOR_ITEST_NAME)
             .exportAsString());
-
-        return asset;
     }
 
 

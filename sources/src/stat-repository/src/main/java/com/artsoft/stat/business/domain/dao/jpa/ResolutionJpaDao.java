@@ -31,7 +31,7 @@ public class ResolutionJpaDao extends AbstractJpaDao<ResolutionEntity, Integer> 
     public ResolutionEntity findByWidthAndHeight(final int width, final int height)
     {
         if (logger.isTraceEnabled()) {
-            logger.trace("Start searching resolution instance with 'width'x'height': " + width + "x" + height + ".");
+            logger.trace("Start searching resolution instance with 'width'x'height': " + width + 'x' + height + '.');
         }
 
         // create named query
@@ -50,7 +50,7 @@ public class ResolutionJpaDao extends AbstractJpaDao<ResolutionEntity, Integer> 
         }
         catch (NoResultException e) {
             if (logger.isDebugEnabled()) {
-                logger.debug("Resolution instance not found with 'width'x'height': " + width + "x" + height + ".");
+                logger.debug("Resolution instance not found with 'width'x'height': " + width + 'x' + height + '.');
             }
             return null;
         }

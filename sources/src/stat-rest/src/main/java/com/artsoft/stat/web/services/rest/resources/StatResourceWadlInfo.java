@@ -56,7 +56,7 @@ public class StatResourceWadlInfo implements StatResourceWadl
         }
 
         // prepare path to the file under context path
-        String contextPath = Constants.CONTEXT_DIR + "/" + path;
+        String contextPath = Constants.CONTEXT_DIR + '/' + path;
 
         // open the file
         URL fileUrl = StatResourceService.class.getClassLoader().getResource(contextPath);
@@ -73,7 +73,7 @@ public class StatResourceWadlInfo implements StatResourceWadl
         }
         catch (IOException e) {
             if (logger.isWarnEnabled()) {
-                logger.warn("Problem with reading file '" + path + "' due to: " + e.getMessage() + ".");
+                logger.warn("Problem with reading file '" + path + "' due to: " + e.getMessage() + '.');
             }
             throw new StatResourceUnexpectedException("Problem with reading file.", e);
         }

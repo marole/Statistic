@@ -19,6 +19,7 @@ public class ReflectionException extends RuntimeException
      */
     public ReflectionException()
     {
+        // Default exception constructor is needed.
     }
 
 

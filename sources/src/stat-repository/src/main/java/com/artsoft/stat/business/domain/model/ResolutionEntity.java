@@ -57,6 +57,7 @@ public class ResolutionEntity implements Serializable
      */
     public ResolutionEntity()
     {
+        // Default entity constructor is needed.
     }
 
 
@@ -175,7 +176,7 @@ public class ResolutionEntity implements Serializable
     @Override
     public String toString()
     {
-        return "ResolutionEntity[id=" + id + ", width=" + width + ", height=" + height + "]";
+        return "ResolutionEntity[id=" + id + ", width=" + width + ", height=" + height + ']';
     }
 
 

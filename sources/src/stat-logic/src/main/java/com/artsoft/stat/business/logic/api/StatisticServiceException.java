@@ -18,6 +18,7 @@ public class StatisticServiceException extends RuntimeException
      */
     public StatisticServiceException()
     {
+        // Default exception constructor is needed.
     }
 
 

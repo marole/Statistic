@@ -25,7 +25,6 @@ import com.artsoft.stat.web.services.rest.resources.StatisticRequestHandler;
  */
 public class StatisticRequestHandlerTest
 {
-    private StatisticRequestHandler statisticRequestHandler;
     @Mock
     private StatisticServiceRemote statisticService;
 
@@ -48,7 +47,7 @@ public class StatisticRequestHandlerTest
             resolutionEntity);
 
         // when
-        statisticRequestHandler = new StatisticRequestHandler(statisticService);
+        StatisticRequestHandler statisticRequestHandler = new StatisticRequestHandler(statisticService);
         statisticRequestHandler.invoke(statistic);
 
         // then

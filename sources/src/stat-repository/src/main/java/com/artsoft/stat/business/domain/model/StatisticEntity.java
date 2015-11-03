@@ -50,6 +50,7 @@ public class StatisticEntity implements Serializable
      */
     public StatisticEntity()
     {
+        // Default entity constructor is needed.
     }
 
 
@@ -187,7 +188,7 @@ public class StatisticEntity implements Serializable
     @Override
     public String toString()
     {
-        return "StatisticEntity[id=" + id + ", name=" + name + ", value=" + value + ", resolution=" + resolution + "]";
+        return "StatisticEntity[id=" + id + ", name=" + name + ", value=" + value + ", resolution=" + resolution + ']';
     }
 
 

@@ -18,6 +18,7 @@ public class TransactionRequiredDaoException extends StatisticDaoException
      */
     public TransactionRequiredDaoException()
     {
+        // Default exception constructor is needed.
     }
 
 

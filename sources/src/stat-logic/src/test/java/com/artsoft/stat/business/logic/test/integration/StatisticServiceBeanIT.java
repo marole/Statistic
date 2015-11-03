@@ -93,12 +93,10 @@ public class StatisticServiceBeanIT extends Arquillian
                 .as(JavaArchive.class);
 
             // create war structure for itest
-            WebArchive war = ShrinkWrap.create(WebArchive.class, WAR_TEST_COMPONENT_NAME_FOR_ITEST)
+            return ShrinkWrap.create(WebArchive.class, WAR_TEST_COMPONENT_NAME_FOR_ITEST)
                 .addAsLibraries(ejbModuleUnderTest)
                 .addAsLibraries(jarWithTest)
                 .addAsLibraries(libsList.toArray(new File[libsList.size()]));
-
-            return war;
         }
         catch (Exception e) {
             e.printStackTrace();

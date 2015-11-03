@@ -18,6 +18,7 @@ public class EntityExistsDaoException extends StatisticDaoException
      */
     public EntityExistsDaoException()
     {
+        // Call super() method is done automatically.
     }
 
 

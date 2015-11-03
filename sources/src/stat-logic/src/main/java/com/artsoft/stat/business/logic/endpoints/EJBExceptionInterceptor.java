@@ -27,14 +27,6 @@ public class EJBExceptionInterceptor
 
 
     /**
-     * Instantiates a new EJB exception interceptor.
-     */
-    public EJBExceptionInterceptor()
-    {
-    }
-
-
-    /**
      * Invoke EJB exception handler.
      *
      * @param invocation the invocation context

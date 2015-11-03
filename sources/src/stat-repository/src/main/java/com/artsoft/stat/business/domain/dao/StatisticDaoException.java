@@ -18,6 +18,7 @@ public class StatisticDaoException extends RuntimeException
      */
     public StatisticDaoException()
     {
+        // Default exception constructor is needed.
     }
 
 
