@@ -1,17 +1,19 @@
 Publish code
 ============
 
-- Sprawdzenie kodu czy siê kompiluje, czy testy s¹ ok, itp.:
+- Sformatowanie kodu:
     * W³¹czenie 'Build Automatically'.
     * Sformatowanie kodu poprzez Source > Clean up...
-    * Wyczyszczenie kodu poprzez Project > Clean ...
+    * Wyczyszczenie kodu poprzez Project > Clean...
+    
+- Sprawdzenie kodu czy siê kompiluje, czy testy s¹ ok, itp.:
     * Wy³¹czenie 'Build Automatically'.
     * Sprawdzenie kodu poprzez wykonanie pe³nych testów 'mvn clean install -Pitest'.
     * Wygenerowanie raportu 'mvn clean site',
     
 - Sprawdzenie kodu co do stylu:
     * W³¹czenie 'Build Automatically'.
-    * Wykonanie 'Clean' code.
+    * Wyczyszczenie kodu poprzez Project > Clean...
     * Sprawdzenie kodu z wykorzystaniem FindBugs.
     * Sprawdzenie kodu z wykorzystaniem SonarQube na ka¿dym projekcie osobno.
 
