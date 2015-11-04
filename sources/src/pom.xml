@@ -13,7 +13,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <project.config.file.path>${project.parent.relativePath}/../local.properties</project.config.file.path>
-        <scm.git.location>https://github.com/marole/Statistic.git</scm.git.location>
+        <scm.git.location>scm:git:https://github.com/marole/Statistic.git</scm.git.location>
 
         <!-- Build configurations -->
         <restfull-resources-dir>src/main/resources</restfull-resources-dir>
