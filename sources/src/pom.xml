@@ -61,7 +61,7 @@
         <glassfish-embedded-all.version>4.1</glassfish-embedded-all.version>
 
         <!-- SonarQube plugin -->
-        <sonar-maven-plugin.version>2.6</sonar-maven-plugin.version>
+        <sonar-maven-plugin.version>2.7.1</sonar-maven-plugin.version>
         <sonar.host.url>http://vps138213.ovh.net:9000</sonar.host.url>
         <sonar-jacoco-listeners.version>3.2</sonar-jacoco-listeners.version>
 

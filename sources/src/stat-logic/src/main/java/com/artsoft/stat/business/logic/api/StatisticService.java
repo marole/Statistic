@@ -11,6 +11,7 @@ import com.artsoft.stat.business.domain.model.StatisticEntity;
 /**
  * The Interface StatisticService.
  */
+@SuppressWarnings("squid:S1609")
 public interface StatisticService
 {
     /**

@@ -37,6 +37,7 @@ public class StatisticContextResolver implements ContextResolver<JAXBContext>
      *
      * @author Marcin Olejarczyk
      */
+    @SuppressWarnings("squid:S2972")
     private static class ValidatingJaxbContext extends JAXBContext
     {
         private static final Log logger = LogFactory.getLog(ValidatingJaxbContext.class);
@@ -106,7 +107,7 @@ public class StatisticContextResolver implements ContextResolver<JAXBContext>
         }
 
 
-        @SuppressWarnings({"deprecation", "squid:CallToDeprecatedMethod"})
+        @SuppressWarnings("deprecation")
         @Override
         public javax.xml.bind.Validator createValidator() throws JAXBException
         {
