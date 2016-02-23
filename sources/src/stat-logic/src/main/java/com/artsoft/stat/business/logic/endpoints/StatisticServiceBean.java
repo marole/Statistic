@@ -48,7 +48,7 @@ public class StatisticServiceBean implements StatisticServiceRemote, StatisticSe
     @Inject
     private ResolutionDao resolutionDao;
     @Resource
-    private Validator validator; // Injection according to JSR-000349 Java EE 7
+    private Validator validator;   // Injection according to JSR-000349 Java EE 7
 
 
     @Override
