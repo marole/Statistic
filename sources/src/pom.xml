@@ -62,7 +62,7 @@
 
         <!-- SonarQube plugin -->
         <sonar-maven-plugin.version>2.7.1</sonar-maven-plugin.version>
-        <sonar.host.url>http://vps216689.ovh.net:9000</sonar.host.url>
+        <sonar.host.url>http://dev.mecosoft.pl:9000</sonar.host.url>
         <sonar-jacoco-listeners.version>3.2</sonar-jacoco-listeners.version>
 
         <!-- Maven plugin's versions -->

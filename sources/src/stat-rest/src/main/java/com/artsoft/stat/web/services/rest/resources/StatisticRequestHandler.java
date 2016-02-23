@@ -70,7 +70,7 @@ public class StatisticRequestHandler
      *
      * @return the statistic entity data
      */
-    private StatisticEntity buildStatEntityObject(final Statistic stat)
+    private static StatisticEntity buildStatEntityObject(final Statistic stat)
     {
         if (logger.isDebugEnabled()) {
             logger.debug("Decoded statistic data: " + stat);

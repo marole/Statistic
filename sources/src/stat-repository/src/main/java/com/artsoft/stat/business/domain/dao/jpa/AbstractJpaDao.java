@@ -42,7 +42,7 @@ abstract class AbstractJpaDao<T, K> implements Dao<T, K>
      * Instantiates a new JPA DAO object.
      */
     @SuppressWarnings("unchecked")
-    public AbstractJpaDao()
+    AbstractJpaDao()
     {
         ParameterizedType genericSuperclass = (ParameterizedType)getClass().getGenericSuperclass();
         entityClass = (Class<T>)genericSuperclass.getActualTypeArguments()[0];
